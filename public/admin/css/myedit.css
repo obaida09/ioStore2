@@ -1,0 +1,84 @@
+
+/* Edit Datatable */
+
+.card-body .table-responsive .dataTables_filter{
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+.card-body .table-responsive .dataTables_length{
+    float: left;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.card-body .dataTables_info{
+    float: left;
+    margin-top: 8px;
+    opacity: .9;
+}
+
+.card-body .dataTables_paginate{
+    float: right;
+}
+
+.card-body .dataTables_paginate .paginate_button{
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #4e73df;
+    background-color: #fff;
+    border: 1px solid #dddfeb;
+    cursor: pointer;
+}
+
+.card-body .dataTables_paginate .paginate_button.current{
+    background-color: #4e73df;
+    border: 1px solid #4e73df;
+    color: #fff;
+}
+
+.card-body .dataTables_paginate .paginate_button:hover{
+    background-color: #4e72df15;
+}
+
+.card-body .dataTables_paginate .paginate_button.current:hover{
+    background-color: #4e73df;
+    color: #fff;
+}
+
+.card-body .dataTables_paginate .paginate_button.previous,
+.card-body .dataTables_paginate .paginate_button.next{
+    padding: 0.25rem 0.79rem;
+}
+
+.card-body .dataTables_paginate .paginate_button.previous.disabled,
+.card-body .dataTables_paginate .paginate_button.next.disabled{
+    color: rgb(110, 110, 110);
+    cursor: initial;
+}
+
+.card-body .dataTables_paginate .paginate_button.previous.disabled:hover,
+.card-body .dataTables_paginate .paginate_button.next.disabled:hover{
+    background-color: #fff;
+}
+
+.card-body .dataTables_paginate .paginate_button.previous{
+    border-radius: 20% 0 0 20%;
+}
+
+.card-body .dataTables_paginate .paginate_button.next{
+    border-radius: 0 20%  20% 0;
+}
+
+.ellipsis{
+    display: none;
+}
+
+.card-body tfoot{
+    display: none;
+}
