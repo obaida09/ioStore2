@@ -1,9 +1,10 @@
 @include('layouts.header')
-@include('layouts.modal')
 
-    <!-- Main content -->
-    <div class="container">
+<livewire:frontend.product-modal-shared />
+
+<!-- Main content -->
+<div class="container">
     @yield('content')
-    </div>
+</div>
 
 @include('layouts.footer')

@@ -66,4 +66,14 @@ class Product extends Model
     {
         return $this->MorphMany(Media::class, 'mediable');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(ProductReview::class);
+    }
+
+    public function firstMedia()
+    {
+        return $this->morphOne(Media::class, 'mediable')->orderBy('file_sort', 'asc');
+    }
 }

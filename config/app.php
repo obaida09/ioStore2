@@ -235,6 +235,7 @@ return [
         'Entrust'   => Mindscms\Entrust\EntrustFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];

@@ -39,6 +39,8 @@
   <link rel="stylesheet" href="{{ asset('frontend/css/style.default.css')}}" id="theme-stylesheet">
   <!-- Custom stylesheet - for your changes-->
   <link rel="stylesheet" href="{{ asset('frontend/css/custom.css')}}">
+  <!-- livewire Styles -->
+  @livewireStyles
 
 </head>
 <body>

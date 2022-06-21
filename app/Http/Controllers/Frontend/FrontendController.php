@@ -12,8 +12,7 @@ class FrontendController extends Controller
     {
         $product_categories = ProductCategory::whereStatus(1)->whereNull('parent_id')->get();
         // $featuerd_products = Product::with('firstMedia')->inRandomOrder()->scopeFeatured()->scopeActive()->scopeHasQuantity()->scopeActiveCategory()->take(8)->get();
-        $featuerd_products = Product::with('media')->inRandomOrder()->take(8)->get();
-        return view('frontend.index', compact('product_categories', 'featuerd_products'));
+        return view('frontend.index', compact('product_categories'));
     }
 
     public function cart()
@@ -26,7 +25,7 @@ class FrontendController extends Controller
         return view('frontend.checkout');
     }
 
-    public function detail()
+    public function product()
     {
         return view('frontend.product');
     }
