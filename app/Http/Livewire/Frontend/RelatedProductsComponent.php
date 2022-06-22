@@ -2,13 +2,21 @@
 
 namespace App\Http\Livewire\Frontend;
 
-use Livewire\Component;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Livewire\Component;
 
-class FeaturedProducts extends Component
+class RelatedProductsComponent extends Component
 {
-        public function addToCart($id)
+
+    public $relatedProducts;
+
+    public function mount($relatedProducts)
+    {
+        $this->relatedProducts = $relatedProducts;
+    }
+
+    public function addToCart($id)
     {
         $product = Product::whereId($id)->Active()->HasQuantity()->ActiveCategory()->firstOrFail();
         $duplicates = Cart::instance('default')->search(function ($cartItem, $rowId) use ($product) {
@@ -19,7 +27,7 @@ class FeaturedProducts extends Component
         } else {
             Cart::instance('default')->add($product->id, $product->name, 1, $product->price)->associate(Product::class);
             $this->emit('updateCart');
-            // $this->alert('success', 'Product added in your cart successfully.');
+            $this->alert('success', 'Product added in your cart successfully.');
         }
     }
 
@@ -34,13 +42,12 @@ class FeaturedProducts extends Component
         } else {
             Cart::instance('wishlist')->add($product->id, $product->name, 1, $product->price)->associate(Product::class);
             $this->emit('updateCart');
-            // $this->alert('success', 'Product added in your wishlist cart successfully.');
+            $this->alert('success', 'Product added in your wishlist cart successfully.');
         }
     }
+
     public function render()
     {
-        return view('livewire.frontend.featured-products', [
-            'featuerd_products' => Product::with('media')->Active()->HasQuantity()->ActiveCategory()->firstOrFail()->take(8)->get()
-        ]);
+        return view('livewire.frontend.related-products-component');
     }
 }

@@ -30,7 +30,7 @@
                                         class="btn btn-sm btn-dark">Add to cart</a>
                                 </li>
                                 <li class="list-inline-item mr-0">
-                                    <a wire:click="$emit('showProductModalAction', '{{ $item->slug }}')"
+                                    <a wire:click.prevent="$emit('showProductModalAction', '{{ $item->slug }}')"
                                         class="btn btn-sm btn-outline-dark" data-target="#productView" data-toggle="modal">
                                         <i class="fas fa-expand"></i>
                                     </a>

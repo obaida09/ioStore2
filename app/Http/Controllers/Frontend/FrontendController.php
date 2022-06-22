@@ -25,9 +25,16 @@ class FrontendController extends Controller
         return view('frontend.checkout');
     }
 
-    public function product()
+    public function product($slug)
     {
-        return view('frontend.product');
+        $product = Product::with('media', 'category', 'tags', 'reviews')->withAvg('reviews', 'rating')->whereSlug($slug)
+            ->Active()->HasQuantity()->ActiveCategory()->firstOrFail();
+
+        $relatedProducts = Product::with('firstMedia')->whereHas('category', function ($query) use ($product) {
+            $query->whereId($product->product_category_id);
+            $query->whereStatus(true);
+        })->inRandomOrder()->Active()->HasQuantity()->take(4)->get();
+        return view('frontend.product', compact('product', 'relatedProducts'));
     }
 
     public function shop()

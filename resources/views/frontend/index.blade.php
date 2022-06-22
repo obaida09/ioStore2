@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
   <!-- HERO SECTION-->
   <section class="hero pb-3 bg-cover bg-center d-flex align-items-center" style="background: url({{ asset('assets/sliders/hero-banner-alt.jpg') }})">
     <div class="container py-5">
@@ -97,5 +98,5 @@
       </div>
     </div>
   </section>
-
+</div>
 @endsection

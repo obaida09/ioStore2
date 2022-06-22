@@ -77,11 +77,3 @@
     </div>
 </div>
 </div>
-
-@push('js')
-<script>
-    Livewire.on('showProductModalAction', postId => {
-        console.log('asfg');
-    })
-    </script>
-@endpush
