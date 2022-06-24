@@ -74,20 +74,18 @@
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="cart.html"> <i class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small class="text-gray fw-normal">(2)</small></a></li>
-              <li class="nav-item"><a class="nav-link" href="#!"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (0)</small></a></li>
+              <livewire:frontend.carts />
               @guest
-              <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"> <i class="fas fa-user me-1 text-gray fw-normal"></i>Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"> <i class="fas fa-user me-1 text-gray fw-normal"></i>Login</a></li>
               @endguest
               @auth
-              <li class="nav-item nav-link">{{ auth()->user()->username  }}</li>
-              <li class="nav-item nav-link">
-                
-                <form action="{{ route('logout') }}" method="post" id="logout-form">
-                  @csrf
-                  <button type="submit">logout</button>
-                </form>
-              </li>
+                <li class="nav-item nav-link">{{ auth()->user()->username  }}</li>
+                <li class="nav-item nav-link">   
+                  <form action="{{ route('logout') }}" method="post" id="logout-form">
+                    @csrf
+                    <button type="submit">logout</button>
+                  </form>
+                </li>
               @endauth
             </ul>
           </div>

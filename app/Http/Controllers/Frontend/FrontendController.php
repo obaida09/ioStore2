@@ -15,10 +15,6 @@ class FrontendController extends Controller
         return view('frontend.index', compact('product_categories'));
     }
 
-    public function cart()
-    {
-        return view('frontend.cart');
-    }
 
     public function checkout()
     {
@@ -37,8 +33,24 @@ class FrontendController extends Controller
         return view('frontend.product', compact('product', 'relatedProducts'));
     }
 
-    public function shop()
+    public function shop($slug = null)
     {
-        return view('frontend.shop');
+        return view('frontend.shop', compact('slug'));
     }
+
+    public function shop_tag($slug = null)
+    {
+        return view('frontend.shop_tag', compact('slug'));
+    }
+
+    public function cart()
+    {
+        return view('frontend.cart');
+    }
+
+    public function wishlist()
+    {
+        return view('frontend.wishlist');
+    }
+
 }

@@ -8,24 +8,13 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ShopProductsComponent extends Component
+class ShopProductsTagComponent extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $paginationLimit = 15;
+    public $paginationLimit = 12;
     public $slug;
     public $sortingBy = 'default';
-    public $sortClass = 4;
-
-    public function sort($itemNum) {
-        if ($itemNum == 'four_items') {
-            $this->sortClass = 3;
-            $this->paginationLimit = 20;
-        }else {
-            $this->sortClass = 4;
-            $this->paginationLimit = 15;
-        }
-    }
 
     public function addToCart($id)
     {
@@ -78,37 +67,20 @@ class ShopProductsComponent extends Component
         }
 
         $products = Product::with('firstMedia');
-        if ($this->slug == '') {
-            $products = $products->ActiveCategory();
-        } else {
-            $product_category = ProductCategory::whereSlug($this->slug)->whereStatus(true)->first();
 
-            if (is_null($product_category->parent_id)) {
-                $categoriesIds = ProductCategory::whereParentId($product_category->id)
-                    ->whereStatus(true)->pluck('id')->toArray();
-
-                $products = $products->whereHas('category', function ($query) use ($categoriesIds) {
-                    $query->whereIn('id', $categoriesIds);
-                });
-
-            } else {
-
-                $products = $products->with('category')->whereHas('category', function ($query) {
-                    $query->where([
-                        'slug' => $this->slug,
-                        'status' => true
-                    ]);
-                });
-
-            }
-        }
+        $products = $products->with('tags')->whereHas('tags', function ($query) {
+            $query->where([
+                'slug' => $this->slug,
+                'status' => true,
+            ]);
+        });
 
         $products = $products->Active()
             ->HasQuantity()
             ->orderBy($sort_field, $sort_type)
             ->paginate($this->paginationLimit);
 
-        return view('livewire.frontend.shop-products-component', [
+        return view('livewire.frontend.shop-products-tag-component', [
             'products' => $products
         ]);
     }
