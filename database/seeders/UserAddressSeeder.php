@@ -19,48 +19,45 @@ class UserAddressSeeder extends Seeder
      */
     public function run()
     {
-    //     Schema::disableForeignKeyConstraints();
-    //     $faker = Factory::create();
+        Schema::disableForeignKeyConstraints();
+        $faker = Factory::create();
 
-    //     $sami   = User::whereUsername('sami')->first();
-    //     $ksa   = Country::with('states')->whereId(194)->first();
-    //     $state = $ksa->states->random()->id;
-    //     $city = City::whereStateId($state)->inRandomOrder()->first()->id;
+        $Obaida   = User::whereUsername('Obaida')->first();
 
-    //     $sami->addresses()->create([
-    //         'address_title'         => 'Home',
-    //         'default_address'       => true,
-    //         'first_name'            => 'Sami',
-    //         'last_name'             => 'Mansour',
-    //         'email'                 => $faker->email,
-    //         'mobile'                => $faker->phoneNumber,
-    //         'address'               => $faker->address,
-    //         'address2'              => $faker->secondaryAddress,
-    //         'country_id'            => $ksa->id,
-    //         'state_id'              => $state,
-    //         'city_id'               => $city,
-    //         'zip_code'              => $faker->randomNumber(5),
-    //         'po_box'                => $faker->randomNumber(4),
-    //     ]);
+        $Obaida->addresses()->create([
+            'address_title'         => 'Home',
+            'default_address'       => true,
+            'first_name'            => 'Obaida',
+            'last_name'             => 'Mohammed',
+            'email'                 => $faker->email,
+            'mobile'                => $faker->phoneNumber,
+            'address'               => $faker->address,
+            'address2'              => $faker->secondaryAddress,
+            'country_id'            => 101,
+            'state_id'              => 1,
+            'city_id'               => 1,
+            'zip_code'              => $faker->randomNumber(5),
+            'po_box'                => $faker->randomNumber(4),
+        ]);
 
 
-    //     $sami->addresses()->create([
-    //         'address_title'         => 'Work',
-    //         'default_address'       => false,
-    //         'first_name'            => 'Sami',
-    //         'last_name'             => 'Mansour',
-    //         'email'                 => $faker->email,
-    //         'mobile'                => $faker->phoneNumber,
-    //         'address'               => $faker->address,
-    //         'address2'              => $faker->secondaryAddress,
-    //         'country_id'            => 65,
-    //         'state_id'              => 3223,
-    //         'city_id'               => 31848,
-    //         'zip_code'              => $faker->randomNumber(5),
-    //         'po_box'                => $faker->randomNumber(4),
-    //     ]);
+        $Obaida->addresses()->create([
+            'address_title'         => 'Work',
+            'default_address'       => false,
+            'first_name'            => 'Obaida',
+            'last_name'             => 'Mohammed',
+            'email'                 => $faker->email,
+            'mobile'                => $faker->phoneNumber,
+            'address'               => $faker->address,
+            'address2'              => $faker->secondaryAddress,
+            'country_id'            => 101,
+            'state_id'              => 2,
+            'city_id'               => 2,
+            'zip_code'              => $faker->randomNumber(5),
+            'po_box'                => $faker->randomNumber(4),
+        ]);
 
-    //     Schema::enableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();
 
     }
 }

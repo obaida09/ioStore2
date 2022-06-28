@@ -11,6 +11,8 @@ class Carts extends Component
     public $cartCount;
     public $wishlistCount;
 
+    public $item_quantity = 1;
+
     protected $listeners = [
         'updateCart' => 'update_cart',
         'removeFromCart' => 'remove_from_cart',

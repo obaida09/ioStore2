@@ -64,7 +64,6 @@ class ProductCategoriesDataTable extends DataTable
                 'lengthMenu' => [[10, 25, -1], [10, 25, 'All Record']],
                 'buttons' => ['excel', 'csv', 'pdf', 'reset'],
             ])
-            ->orderBy(1);
     }
 
     /**

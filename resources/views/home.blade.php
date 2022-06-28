@@ -108,3 +108,26 @@ function partsSums($ls) {
 }
 
 echo partsSums([0, 1, 3, 6, 10]);
+
+
+
+
+echo 'hello world' . '<br>';
+
+
+function obadia_strlen($str){
+    for($i = 0 ; $i < 10; $i++){
+        if($str[$i] !== ) {
+            echo $str[$i];
+        }
+    }
+}
+
+obadia_strlen('obaida');
+
+function toCamelCase($str){
+    // for($i = 0 ; $i < )
+}
+
+
+echo toCamelCase("the_stealth_warrior");

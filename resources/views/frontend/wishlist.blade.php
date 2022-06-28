@@ -24,13 +24,13 @@
             <div class="col-lg-12 mb-4 mb-lg-0">
                 <!-- CART TABLE-->
                 <div class="table-responsive mb-4">
-                    <table class="table">
+                    <table class="table text-nowrap">
                         <thead class="bg-light">
                         <tr>
-                            <th class="border-0" scope="col"><strong class="text-small text-uppercase">Product</strong></th>
-                            <th class="border-0" scope="col"><strong class="text-small text-uppercase">Price</strong></th>
-                            <th class="border-0" scope="col"><strong class="text-small text-uppercase">Move to cart</strong></th>
-                            <th class="border-0" scope="col"></th>
+                            <th class="border-0 p-3" scope="col"><strong class="text-small text-uppercase">Product</strong></th>
+                            <th class="border-0 p-3" scope="col"><strong class="text-small text-uppercase">Price</strong></th>
+                            <th class="border-0 p-3" scope="col"><strong class="text-small text-uppercase">Move to cart</strong></th>
+                            <th class="border-0 p-3" scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -39,7 +39,7 @@
                         @empty
                             <tr>
                                 <td class="pl-0 border-light" colspan="5">
-                                    <p class="text-center">
+                                    <p class="text-center mt-4">
                                         No Items found in your wish list!
                                     </p>
                                 </td>

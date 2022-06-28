@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\CustomerAddressController;
 use App\Http\Controllers\Admin\ShippingCompanyController;
+use App\Http\Controllers\Admin\PaymentMethodController;
 
 Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
 
@@ -44,6 +45,7 @@ Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () {
     Route::resource('cities', CityController::class);
     Route::resource('customer_addresses', CustomerAddressController::class);
     Route::resource('shipping_companies', ShippingCompanyController::class);
+    Route::resource('payment_methods', PaymentMethodController::class);
 
     // Route::get('/cities/get_cities', function () {
     //   dd('dsf');

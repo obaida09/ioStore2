@@ -35,7 +35,12 @@ class CartItemComponent extends Component
 
     public function removeFromCart($rowId)
     {
-        $this->emit('removeFromCart', $rowId);
+        Cart::instance('default')->remove($rowId);
+        $this->emit('updateCart');
+        // $this->alert('success', 'Item removed from your cart!');
+        if (Cart::instance('default')->count() == 0){
+            return redirect()->route('frontend.cart');
+        }
     }
 
     public function render()

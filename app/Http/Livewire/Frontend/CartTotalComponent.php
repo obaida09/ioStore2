@@ -18,11 +18,11 @@ class CartTotalComponent extends Component
 
     public function mount()
     {
-        // $this->cart_subtotal = getNumbers()->get('subtotal');
-        // $this->cart_discount = getNumbers()->get('discount');
-        // $this->cart_tax = getNumbers()->get('tax');
-        // $this->cart_shipping = getNumbers()->get('shipping');
-        // $this->cart_total = getNumbers()->get('total');
+        $this->cart_subtotal = getNumbers()->get('subtotal');
+        $this->cart_discount = getNumbers()->get('discount');
+        $this->cart_tax = getNumbers()->get('tax');
+        $this->cart_shipping = getNumbers()->get('shipping');
+        $this->cart_total = getNumbers()->get('total');
     }
 
 
