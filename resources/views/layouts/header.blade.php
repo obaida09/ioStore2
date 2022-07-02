@@ -39,8 +39,46 @@
   <link rel="stylesheet" href="{{ asset('frontend/css/style.default.css')}}" id="theme-stylesheet">
   <!-- Custom stylesheet - for your changes-->
   <link rel="stylesheet" href="{{ asset('frontend/css/custom.css')}}">
+
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/slick/slick/slick.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/slick/slick/slick-theme.css')}}"/> --}}
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
   <!-- livewire Styles -->
   @livewireStyles
+
+
+  <style>
+    .swiper {
+      /* width: 600px; */
+      /* height: 300px; */
+    }
+
+    .swiper-slide {
+      background-color: rgb(255, 255, 255);
+    }
+    .fl-l{
+      float: left;
+    }
+
+    .swiper .swiper-button-prev,
+    .swiper .swiper-button-next{
+      display: none;
+      color: #dcb14a;
+    }
+    .swiper:hover .swiper-button-prev,
+    .swiper:hover .swiper-button-next{
+      display: inline-flex;
+      width: 5%;
+      height: 97%;
+      margin-top: -227px;
+      background-color: rgba(0, 0, 0, 0.05);
+      transition: .3s;
+    }
+
+
+  </style>
 
 </head>
 <body>
@@ -80,7 +118,7 @@
               @endguest
               @auth
                 <li class="nav-item nav-link">{{ auth()->user()->username  }}</li>
-                <li class="nav-item nav-link">   
+                <li class="nav-item nav-link">
                   <form action="{{ route('logout') }}" method="post" id="logout-form">
                     @csrf
                     <button type="submit">logout</button>

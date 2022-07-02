@@ -66,19 +66,69 @@
 <script src="{{ asset('frontend/vendor/choices.js/public/assets/scripts/choices.min.js') }}"></script>
 <script src="{{ asset('frontend/js/front.js') }}"></script>
 
+{{-- <script type="text/javascript" src="{{ asset('frontend/vendor/slick/code.jquery.com/jquery-migrate-1.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('frontend/vendor/slick/slick/slick.min.js') }}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.your-class').slick({
+      setting-name: setting-value
+    });
+  });
+</script> --}}
+
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script type="module">
+  import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
+
+  // const swiper = new Swiper(...)
+
+
+
+  const swiper = new Swiper('.swiper', {
+  // Default parameters
+  slidesPerView: 4,
+  spaceBetween: 5,
+  loop: true,
+
+//   autoplay: {
+//    delay: 1000,
+//  },
+
+  // If we need pagination
+  // pagination: {
+  //   el: '.swiper-pagination',
+  // },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+</script>
+
+
 <!-- livewire Scripts-->
 @livewireScripts
 <!-- livewire Sweet Alert-->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
-<script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
+<script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
 <x-livewire-alert::flash />
 {{-- @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"]) --}}
 
 <script>
 // ------------------------------------------------------- //
-//   Inject SVG Sprite - 
-//   see more here 
+//   Inject SVG Sprite -
+//   see more here
 //   https://css-tricks.com/ajaxing-svg-sprite/
 // ------------------------------------------------------ //
 function injectSvgSprite(path) {
@@ -93,7 +143,7 @@ ajax.onload = function(e) {
   document.body.insertBefore(div, document.body.childNodes[0]);
 }
 }
-// this is set to BootstrapTemple website as you cannot 
+// this is set to BootstrapTemple website as you cannot
 // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
 // while using file:// protocol
 // pls don't forget to change to your domain :)
