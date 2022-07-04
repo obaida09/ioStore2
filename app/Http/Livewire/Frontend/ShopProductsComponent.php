@@ -16,6 +16,7 @@ class ShopProductsComponent extends Component
     public $slug;
     public $sortingBy = 'default';
     public $sortClass = 4;
+    public $sortingByTags = [];
 
     public function sort($itemNum) {
         if ($itemNum == 'four_items') {

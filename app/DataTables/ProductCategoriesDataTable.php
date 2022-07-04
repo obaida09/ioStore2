@@ -63,7 +63,7 @@ class ProductCategoriesDataTable extends DataTable
                 'autoWidth' => false,
                 'lengthMenu' => [[10, 25, -1], [10, 25, 'All Record']],
                 'buttons' => ['excel', 'csv', 'pdf', 'reset'],
-            ])
+            ]);
     }
 
     /**

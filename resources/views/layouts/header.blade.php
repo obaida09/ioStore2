@@ -33,8 +33,6 @@
   <link rel="stylesheet" href="{{ asset('frontend/vendor/nouislider/nouislider.min.css')}}">
   <!-- Choices CSS-->
   <link rel="stylesheet" href="{{ asset('frontend/vendor/choices.js/public/assets/styles/choices.min.css')}}">
-  <!-- Swiper slider-->
-  <link rel="stylesheet" href="{{ asset('frontend/vendor/swiper/swiper-bundle.min.css')}}">
   <!-- theme stylesheet-->
   <link rel="stylesheet" href="{{ asset('frontend/css/style.default.css')}}" id="theme-stylesheet">
   <!-- Custom stylesheet - for your changes-->
@@ -43,6 +41,9 @@
   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/slick/slick/slick.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/slick/slick/slick-theme.css')}}"/> --}}
 
+
+  <!-- Swiper slider-->
+{{--  <link rel="stylesheet" href="{{ asset('frontend/vendor/swiper/swiper-bundle.min.css')}}">--}}
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 
   <!-- livewire Styles -->
@@ -77,7 +78,9 @@
       transition: .3s;
     }
 
-
+  .active-menu{
+    color: rgb(204, 158, 3);
+  }
   </style>
 
 </head>

@@ -46,7 +46,7 @@
         <!-- Slides -->
         @foreach($product_categories as $item)
           <div class="swiper-slide">
-            <a class="category-item mb-3 me-2 ms-2" href="{{ url('shop/' . $product_categories[1]->slug) }}">
+            <a class="category-item mb-3 me-2 ms-2" href="{{ url('shop/' . $item->slug) }}">
               <img class="img-fluid" src="{{ asset('frontend/img/cat-img-4.jpg') }}" alt="" /><strong class="category-item-title">Shoes</strong>
             </a>
           </div>

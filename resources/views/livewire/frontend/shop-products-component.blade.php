@@ -7,14 +7,14 @@
                     <h5 class="text-uppercase mb-4">Categories</h5>
                     @foreach($shop_categories_menu as $shop_category)
                         <div class="py-2 px-4 bg-dark text-white mb-3">
-                            <strong class="small text-uppercase font-weight-bold">
+                            <strong class="small text-uppercase font-weight-bold {{request()->path() == 'shop/'.$shop_category->slug ? 'active-menu':''}}">
                                 {{ $shop_category->name }}
                             </strong>
                         </div>
                         <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
                             @forelse($shop_category->appearedChildren as $sub_shop_category)
                             <li class="mb-2">
-                                <a class="reset-anchor" href="{{ route('frontend.shop', $sub_shop_category->slug) }}">
+                                <a class="reset-anchor {{request()->path() == 'shop/'.$sub_shop_category->slug ? 'active-menu':''}}" href="{{ route('frontend.shop', $sub_shop_category->slug) }}">
                                     {{ $sub_shop_category->name }}
                                 </a>
                             </li>
@@ -23,17 +23,17 @@
                         </ul>
                     @endforeach
 
-                    <h5 class="text-uppercase mb-4">Tags</h5>
-                    <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
-                        @forelse($shop_tags_menu as $shop_tag)
-                            <li class="mb-2">
-                                <a class="reset-anchor" href="{{ route('frontend.shop_tag', $shop_tag->slug) }}">
-                                    {{ $shop_tag->name }}
-                                </a>
-                            </li>
-                        @empty
-                        @endforelse
-                    </ul>
+                  <h5 class="text-uppercase mb-4 mt-5">Tags</h5>
+                  <div class="menu-tag ms-3">
+                    @forelse($shop_tags_menu as $shop_tag)
+                      <div class="form-check mb-1">
+                        <input class="form-check-input" wire:model="sortingByTags" value="{{ $shop_tag->id }}" type="checkbox" id="checkbox_1">
+                        <label class="form-check-label" for="checkbox_1">{{ $shop_tag->name }}</label>
+                      </div>
+                    @empty
+                    @endforelse
+                      <h3>Show: {{ var_export($sortingByTags) }}</h3>
+                  </div>
                 </div>
 
                 <!-- SHOP LISTING-->
