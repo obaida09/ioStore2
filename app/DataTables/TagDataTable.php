@@ -38,7 +38,7 @@ class TagDataTable extends DataTable
      */
     public function query(Tag $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('category')->select('tags.*');
     }
 
     /**
@@ -75,6 +75,8 @@ class TagDataTable extends DataTable
                 ->className('text-secondary text-sm font-weight-bolder opacity-1'),
             Column::make('name'),
             Column::make('status'),
+            Column::computed('Category Name')
+                ->data('category.name'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')

@@ -27,6 +27,18 @@
                         </div>
                     </div>
                     <div class="col-3">
+                        <label for="product_category_id">Category</label>
+                        <select name="product_category_id" class="form-control">
+                            <option value="">---</option>
+                            @forelse($categories as $category)
+                            <option value="{{ $category->id }}" {{ old('product_category_id', $tag->product_category_id)
+                                == $category->id ? 'selected' : null }}>{{ $category->name }}</option>
+                            @empty
+                            @endforelse
+                        </select>
+                        @error('product_category_id')<span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
+                    <div class="col-3">
                         <label for="status">Status</label>
                         <select name="status" class="form-control">
                             <option value="1" {{ old('status', $tag->status) == 1 ? 'selected' : null }}>Active</option>

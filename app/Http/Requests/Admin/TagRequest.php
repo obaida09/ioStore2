@@ -28,6 +28,7 @@ class TagRequest extends FormRequest
             {
                 return [
                     'name' => 'required|max:255|unique:tags',
+                    'product_category_id' => 'required',
                     'status' => 'required',
                 ];
             }
@@ -36,6 +37,7 @@ class TagRequest extends FormRequest
             {
                 return [
                     'name' => 'required|max:255|unique:tags,name,'.$this->route()->tag->id,
+                    'product_category_id' => 'required',
                     'status' => 'required',
                 ];
             }

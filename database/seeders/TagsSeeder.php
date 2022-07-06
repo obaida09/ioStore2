@@ -17,13 +17,13 @@ class TagsSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        Tag::create(['name' => 'Clothes'     , 'status' => true , 'slug' => $faker->unique()->slug(2, true),]);
-        Tag::create(['name' => 'Shoes'       , 'status' => true , 'slug' => $faker->unique()->slug(2, true),]);
-        Tag::create(['name' => 'Watches'     , 'status' => true , 'slug' => $faker->unique()->slug(2, true),]);
-        Tag::create(['name' => 'Electronics' , 'status' => true , 'slug' => $faker->unique()->slug(2, true),]);
-        Tag::create(['name' => 'Men'         , 'status' => true , 'slug' => $faker->unique()->slug(2, true),]);
-        Tag::create(['name' => 'Women'       , 'status' => true , 'slug' => $faker->unique()->slug(2, true),]);
-        Tag::create(['name' => 'Boys'        , 'status' => true , 'slug' => $faker->unique()->slug(2, true),]);
-        Tag::create(['name' => 'Girls'       , 'status' => true , 'slug' => $faker->unique()->slug(2, true),]);
+        Tag::create(['name' => 'Clothes'     , 'status' => true , 'slug' => $faker->unique()->slug(2, true), 'product_category_id' => 1]);
+        Tag::create(['name' => 'Shoes'       , 'status' => true , 'slug' => $faker->unique()->slug(2, true), 'product_category_id' => 1]);
+        Tag::create(['name' => 'Watches'     , 'status' => true , 'slug' => $faker->unique()->slug(2, true), 'product_category_id' => 1]);
+        Tag::create(['name' => 'Electronics' , 'status' => true , 'slug' => $faker->unique()->slug(2, true), 'product_category_id' => 1]);
+        Tag::create(['name' => 'Men'         , 'status' => true , 'slug' => $faker->unique()->slug(2, true), 'product_category_id' => 1]);
+        Tag::create(['name' => 'Women'       , 'status' => true , 'slug' => $faker->unique()->slug(2, true), 'product_category_id' => 1]);
+        Tag::create(['name' => 'Boys'        , 'status' => true , 'slug' => $faker->unique()->slug(2, true), 'product_category_id' => 1]);
+        Tag::create(['name' => 'Girls'       , 'status' => true , 'slug' => $faker->unique()->slug(2, true), 'product_category_id' => 1]);
     }
 }

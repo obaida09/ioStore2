@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\TagDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TagRequest;
+use App\Models\ProductCategory;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -37,7 +38,8 @@ class TagController extends Controller
             return redirect('admin/index');
         }
 
-        return view('admin.tags.create');
+        $categories = ProductCategory::whereStatus(1)->get(['id', 'name']);
+        return view('admin.tags.create', compact('categories'));
     }
 
     /**
@@ -86,7 +88,8 @@ class TagController extends Controller
             return redirect('admin/index');
         }
 
-        return view('admin.tags.edit', compact('tag'));
+        $categories = ProductCategory::whereStatus(1)->get(['id', 'name']);
+        return view('admin.tags.edit', compact('categories', 'tag'));
     }
 
     /**

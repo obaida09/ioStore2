@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Frontend;
 
 use App\Models\Product;
+use App\Models\Tag;
 use App\Models\ProductCategory;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
@@ -14,7 +15,7 @@ class ShopProductsComponent extends Component
     protected $paginationTheme = 'bootstrap';
     public $paginationLimit = 15;
     public $slug;
-    public $sortingBy = 'default';
+    public $sortingBy = ['value' => 'default'];
     public $sortClass = 4;
     public $sortingByTags = [];
 
@@ -60,7 +61,9 @@ class ShopProductsComponent extends Component
 
     public function render()
     {
-        switch ($this->sortingBy) {
+        $sortingByTags = $this->sortingByTags;
+
+        switch ($this->sortingBy['value']) {
             case 'popularity':
                 $sort_field = 'id';
                 $sort_type = 'asc';
@@ -82,7 +85,8 @@ class ShopProductsComponent extends Component
         if ($this->slug == '') {
             $products = $products->ActiveCategory();
         } else {
-            $product_category = ProductCategory::whereSlug($this->slug)->whereStatus(true)->first();
+            $product_category = ProductCategory::with('tags')->whereSlug($this->slug)->whereStatus(true)->first();
+            $tags = $product_category->tags;
 
             if (is_null($product_category->parent_id)) {
                 $categoriesIds = ProductCategory::whereParentId($product_category->id)
@@ -93,24 +97,30 @@ class ShopProductsComponent extends Component
                 });
 
             } else {
-
-                $products = $products->with('category')->whereHas('category', function ($query) {
+                $products = $products->with('category', 'tags')->whereHas('category', function ($query) {
                     $query->where([
                         'slug' => $this->slug,
                         'status' => true
                     ]);
                 });
-
             }
+        }
+
+        if (count($sortingByTags) > 0) {
+            $products = $products->whereHas('tags', function ($query) use ($sortingByTags) {
+                $query->whereIn('tag_id', $sortingByTags);
+            });
         }
 
         $products = $products->Active()
             ->HasQuantity()
             ->orderBy($sort_field, $sort_type)
+            ->whereBetween('price', [0, 2000])
             ->paginate($this->paginationLimit);
 
         return view('livewire.frontend.shop-products-component', [
-            'products' => $products
+            'tags' => $tags,
+            'products' => $products,
         ]);
     }
 }

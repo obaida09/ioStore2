@@ -1,7 +1,4 @@
-
-
-
- <footer class="bg-dark text-white">
+<footer class="bg-dark text-white">
   <div class="container py-4">
     <div class="row py-5">
       <div class="col-md-4 mb-3 mb-md-0">
@@ -38,7 +35,8 @@
           <p class="small text-muted mb-0">&copy; 2021 All rights reserved.</p>
         </div>
         <div class="col-md-6 text-center text-md-end">
-          <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor" href="https://bootstrapious.com/p/boutique-bootstrap-e-commerce-template">Bootstrapious</a></p>
+          <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor"
+              href="https://bootstrapious.com/p/boutique-bootstrap-e-commerce-template">Bootstrapious</a></p>
           <!-- If you want to remove the backlink, please purchase the Attribution-Free License. See details in readme.txt or license.txt. Thanks!-->
         </div>
       </div>
@@ -53,9 +51,12 @@
 {{-- Scripts --}}
 
 {{-- Bootstrap link --}}
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 
@@ -66,7 +67,8 @@
 <script src="{{ asset('frontend/vendor/choices.js/public/assets/scripts/choices.min.js') }}"></script>
 <script src="{{ asset('frontend/js/front.js') }}"></script>
 
-{{-- <script type="text/javascript" src="{{ asset('frontend/vendor/slick/code.jquery.com/jquery-migrate-1.2.1.min.js') }}"></script>
+{{-- <script type="text/javascript"
+  src="{{ asset('frontend/vendor/slick/code.jquery.com/jquery-migrate-1.2.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/vendor/slick/slick/slick.min.js') }}"></script>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -124,8 +126,10 @@
 <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
 <x-livewire-alert::flash />
 {{-- @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"]) --}}
-
+@stack('js')
 <script>
+
+        
 // ------------------------------------------------------- //
 //   Inject SVG Sprite -
 //   see more here
@@ -149,7 +153,15 @@ ajax.onload = function(e) {
 // pls don't forget to change to your domain :)
 injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
 
+slider.noUiSlider.on('change.one', function () {
+        var dive = document.getElementById('tes');
+        dive.innerHTML += 'Extra stuff';
+     });
+
 </script>
 
+
+
 </body>
+
 </html>
