@@ -29,11 +29,7 @@
                     <h6 class="text-uppercase mt-5 mb-4">Price range</h6>
 
                     <div class="price-range pt-4 mb-5">
-                        <div id="range" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
-                        <div class="row pt-2">
-                            <div class="col-6"><strong class="small fw-bold text-uppercase">From</strong></div>
-                            <div class="col-6 text-end"><strong class="small fw-bold text-uppercase">To</strong></div>
-                        </div>
+                        <div id="range" wire:ignore class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
                     </div>
 
                     <!-- Get tags -->
@@ -46,6 +42,7 @@
                             <label class="form-check-label" for="checkbox_1">{{ $tag->name }}</label>
                         </div>
                         @endforeach
+                        <h4 class="mt-6">{{ $minPrice}} -- {{ $maxPrice }}</h4>
                         <h4 class="mt-6">Show: {{ var_export($sortingByTags) }}</h4>
                     </div>
                 </div>
@@ -132,4 +129,16 @@
             </div>
         </div>
     </section>
+
+    @push('js')
+        <script>
+            slider.noUiSlider.on('update', function (value) {
+            var dive = document.getElementById('tes');
+            dive.innerHTML += 'Extra stuff';
+
+            @this.set('minPrice', value[0]);
+            @this.set('maxPrice', value[1]);
+            });
+        </script>
+    @endpush
 </div>

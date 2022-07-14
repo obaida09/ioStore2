@@ -18,6 +18,14 @@ class ShopProductsComponent extends Component
     public $sortingBy = ['value' => 'default'];
     public $sortClass = 4;
     public $sortingByTags = [];
+    public $minPrice;
+    public $maxPrice;
+
+    public function mount()
+    {
+        $this->minPrice = 1;
+        $this->maxPrice = 10000;
+    }
 
     public function sort($itemNum) {
         if ($itemNum == 'four_items') {

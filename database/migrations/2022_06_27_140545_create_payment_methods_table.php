@@ -26,6 +26,8 @@ class CreatePaymentMethodsTable extends Migration
             $table->string('sandbox_username')->nullable();
             $table->string('sandbox_password')->nullable();
             $table->string('sandbox_secret')->nullable();
+            $table->string('sandbox_client_id')->nullable();
+            $table->string('sandbox_client_secret')->nullable();
             $table->boolean('sandbox')->default(false);
             $table->boolean('status')->default(false);
             $table->timestamps();

@@ -126,7 +126,7 @@
 <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
 <x-livewire-alert::flash />
 {{-- @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"]) --}}
-@stack('js')
+
 <script>
 
         
@@ -153,14 +153,15 @@ ajax.onload = function(e) {
 // pls don't forget to change to your domain :)
 injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
 
-slider.noUiSlider.on('change.one', function () {
-        var dive = document.getElementById('tes');
-        dive.innerHTML += 'Extra stuff';
-     });
+// slider.noUiSlider.on('update', function (value) {
+//   var dive = document.getElementById('tes');
+//   dive.innerHTML += value[0];
+//   console.log(value[0])
+// });
 
 </script>
 
-
+@stack('js')
 
 </body>
 

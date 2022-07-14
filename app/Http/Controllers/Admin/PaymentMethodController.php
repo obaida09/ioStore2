@@ -67,6 +67,7 @@ class PaymentMethodController extends Controller
             return redirect('admin/index');
         }
 
+
         $payment_method->update($request->validated());
 
         return redirect()->route('admin.payment_methods.index')->with([
