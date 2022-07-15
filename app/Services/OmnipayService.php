@@ -42,17 +42,17 @@ class OmnipayService
 
     public function getCancelUrl($order_id)
     {
-        return route('checkout.cancel', $order_id);
+        return route('frontend.checkout.cancel', $order_id);
     }
 
     public function getReturnUrl($order_id)
     {
-        return route('checkout.complete', $order_id);
+        return route('frontend.checkout.complete', $order_id);
     }
 
-    public function getNotifyUrl($order_id)
-    {
-        $env = config('services.paypal.sandbox') ? 'sandbox' : 'live';
-        return route('checkout.webhook.ipn', [$order_id, $env]);
-    }
+    // public function getNotifyUrl($order_id)
+    // {
+    //     $env = config('services.paypal.sandbox') ? 'sandbox' : 'live';
+    //     return route('checkout.webhook.ipn', [$order_id, $env]);
+    // }
 }

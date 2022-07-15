@@ -82,7 +82,7 @@
                     <input type="hidden" name="customer_address_id" value="{{ old('customer_address_id', $customer_address_id) }}" class="form-control">
                     <input type="hidden" name="shipping_company_id" value="{{ old('shipping_company_id', $shipping_company_id) }}" class="form-control">
                     <input type="hidden" name="payment_method_id" value="{{ old('payment_method_id', $payment_method_id) }}" class="form-control">
-                    <button type="submit" name="submit" class="btn btn-dark btn-sm btn-block mt-3">
+                    <button type="submit" name="submit" class="btn btn-dark btn-sm btn-block mt-3 w-100">
                         Continue with PayPal
                     </button>
                 </form>

@@ -10,7 +10,6 @@ use App\Models\OrderTransaction;
 use App\Models\Product;
 use App\Models\ProductCoupon;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class OrderService
@@ -35,6 +34,12 @@ class OrderService
         ]);
 
         foreach (Cart::content() as $item) {
+
+            // $order->products()->create([
+            //     'product_id' => $item->model->id,
+            //     'quantity' => $item->qty
+            // ]);
+
             OrderProduct::create([
                 'order_id' => $order->id,
                 'product_id' => $item->model->id,

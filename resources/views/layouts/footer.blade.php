@@ -159,10 +159,13 @@ injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
 //   console.log(value[0])
 // });
 
+
 </script>
 
-@stack('js')
+{{-- sweetalert --}}
+@include('sweetalert::alert')
 
+@stack('js')
 </body>
 
 </html>

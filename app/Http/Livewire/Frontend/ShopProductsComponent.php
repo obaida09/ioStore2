@@ -17,6 +17,7 @@ class ShopProductsComponent extends Component
     public $slug;
     public $sortingBy = ['value' => 'default'];
     public $sortClass = 4;
+    public $tags;
     public $sortingByTags = [];
     public $minPrice;
     public $maxPrice;
@@ -24,7 +25,7 @@ class ShopProductsComponent extends Component
     public function mount()
     {
         $this->minPrice = 1;
-        $this->maxPrice = 10000;
+        $this->maxPrice = 20;
     }
 
     public function sort($itemNum) {
@@ -94,7 +95,7 @@ class ShopProductsComponent extends Component
             $products = $products->ActiveCategory();
         } else {
             $product_category = ProductCategory::with('tags')->whereSlug($this->slug)->whereStatus(true)->first();
-            $tags = $product_category->tags;
+            $this->tags = $product_category->tags;
 
             if (is_null($product_category->parent_id)) {
                 $categoriesIds = ProductCategory::whereParentId($product_category->id)
@@ -123,11 +124,11 @@ class ShopProductsComponent extends Component
         $products = $products->Active()
             ->HasQuantity()
             ->orderBy($sort_field, $sort_type)
-            ->whereBetween('price', [0, 2000])
+            ->whereBetween('price', [$this->minPrice, $this->maxPrice])
             ->paginate($this->paginationLimit);
 
         return view('livewire.frontend.shop-products-component', [
-            'tags' => $tags,
+            'tags' => $this->tags,
             'products' => $products,
         ]);
     }

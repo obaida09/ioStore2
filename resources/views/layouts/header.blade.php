@@ -49,7 +49,6 @@
   <!-- livewire Styles -->
   @livewireStyles
 
-
   <style>
     .swiper {
       /* width: 600px; */
@@ -73,7 +72,7 @@
       display: inline-flex;
       width: 5%;
       height: 97%;
-      margin-top: -227px;
+      margin-top: -195px;
       background-color: rgba(0, 0, 0, 0.05);
       transition: .3s;
     }
@@ -81,6 +80,19 @@
   .active-menu{
     color: rgb(204, 158, 3);
   }
+
+
+
+  .price-range-btn{
+    font-size: 12px;
+    padding: 3px 7px;
+    opacity: .8;
+  }
+
+  .op-1{
+    opacity: 1;
+  }
+
   </style>
 
 </head>
@@ -120,13 +132,16 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"> <i class="fas fa-user me-1 text-gray fw-normal"></i>Login</a></li>
               @endguest
               @auth
-                <li class="nav-item nav-link">{{ auth()->user()->username  }}</li>
-                <li class="nav-item nav-link">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->username }}</a>
+                <div class="dropdown-menu mt-3 shadow-sm" aria-labelledby="pagesDropdown">
                   <form action="{{ route('logout') }}" method="post" id="logout-form">
                     @csrf
-                    <button type="submit">logout</button>
+                    <button type="submit" class="dropdown-item border-0 transition-link">Logout</button>
                   </form>
-                </li>
+                </div>
+              </li>
               @endauth
             </ul>
           </div>
