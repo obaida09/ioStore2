@@ -33,13 +33,8 @@ class OrderService
             'order_status' => 0,
         ]);
 
-        foreach (Cart::content() as $item) {
-
-            // $order->products()->create([
-            //     'product_id' => $item->model->id,
-            //     'quantity' => $item->qty
-            // ]);
-
+        foreach (Cart::content() as $item) 
+        {
             OrderProduct::create([
                 'order_id' => $order->id,
                 'product_id' => $item->model->id,
@@ -52,7 +47,6 @@ class OrderService
         $order->transactions()->create([
             'transaction' => OrderTransaction::NEW_ORDER
         ]);
-
         return $order;
     }
 

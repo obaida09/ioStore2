@@ -22,10 +22,11 @@ class ShopProductsComponent extends Component
     public $minPrice;
     public $maxPrice;
 
+
     public function mount()
     {
         $this->minPrice = 1;
-        $this->maxPrice = 20;
+        $this->maxPrice = 1000;
     }
 
     public function sort($itemNum) {

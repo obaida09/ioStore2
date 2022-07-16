@@ -47,8 +47,6 @@
                                 <label class="form-check-label" for="checkbox_1">{{ $tag->name }}</label>
                             </div>
                             @endforeach
-                            <h4 class="mt-6">{{ $minPrice}} -- {{ $maxPrice }}</h4>
-                            <h4 class="mt-6">Show: {{ var_export($sortingByTags) }}</h4>
                         </div>
                     @endif
                 </div>
@@ -88,7 +86,6 @@
                         </div>
                     </div>
                     <div class="row">
-
                         <!-- Get Products-->
                         @forelse($products as $product)
                         <div class="col-{{ $sortClass }}" id="products-container-area">

@@ -136,6 +136,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->username }}</a>
                 <div class="dropdown-menu mt-3 shadow-sm" aria-labelledby="pagesDropdown">
+                  <a href="{{ route('frontend.customer.dashboard') }}" class="dropdown-item border-0">Dashboard</a>
+                  <a href="{{ route('frontend.customer.profile') }}" class="dropdown-item border-0">Profile</a>
                   <form action="{{ route('logout') }}" method="post" id="logout-form">
                     @csrf
                     <button type="submit" class="dropdown-item border-0 transition-link">Logout</button>

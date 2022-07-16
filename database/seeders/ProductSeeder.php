@@ -6,6 +6,8 @@ use Illuminate\Database\Seeder;
 use Faker\Factory;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Tag;
+use Illuminate\Support\Facades\DB;
 
 class ProductSeeder extends Seeder
 {
@@ -33,7 +35,16 @@ class ProductSeeder extends Seeder
                 'created_at'            => now(),
                 'updated_at'            => now(),
             ];
+            // if($i < 100) {
+            //     DB::table('taggables')->insert([
+            //         'tag_id'        => rand(1, 5),
+            //         'taggable_id'   => $i,
+            //         'taggable_type' => 'tag',
+            //     ]);
+            // }
         }
+
+
 
         $chunks = array_chunk($products, 100);
         foreach ($chunks as $chunk) {
