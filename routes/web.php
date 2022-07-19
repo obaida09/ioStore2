@@ -19,7 +19,3 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('/dolog', [dologController::class, 'dolog'])->name('admin.dolog');
-
-Route::get('/test', function () {
-    return view('home');
-  })->name('home');

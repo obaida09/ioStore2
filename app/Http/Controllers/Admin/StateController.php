@@ -37,7 +37,6 @@ class StateController extends Controller
         }
 
         State::create($request->validated());
-
         return redirect()->route('admin.states.index')->with([
             'message' => 'Created successfully',
             'alert-type' => 'success'

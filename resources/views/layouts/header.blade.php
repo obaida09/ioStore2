@@ -62,6 +62,10 @@
       float: left;
     }
 
+    .fl-r{
+      float: right;
+    }
+
     .swiper .swiper-button-prev,
     .swiper .swiper-button-next{
       display: none;
@@ -91,6 +95,12 @@
 
   .op-1{
     opacity: 1;
+  }
+
+  .curency{
+    font-size: 10px;
+    opacity: .7;
+
   }
 
   </style>

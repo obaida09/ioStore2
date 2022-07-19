@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Frontend\AddressRequest;
 use App\Http\Requests\Frontend\ProfileRequest;
+use App\Models\Country;
+use App\Models\Order;
+use App\Models\UserAddress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -55,28 +59,61 @@ class CustomerController extends Controller
         return back();
     }
 
-    public function remove_profile_image()
-    {
-        $user = auth()->user();
-        if ($user->user_image != '') {
-            if (File::exists('assets/users/' . $user->user_image)){
-                unlink('assets/users/' . $user->user_image);
-            }
-        }
-        $user->user_image = null;
-        $user->save();
-        toast('Profile image deleted', 'success');
-        return back();
-    }
-
-
     public function addresses()
     {
-        return view('frontend.customer.addresses');
+        $countries = Country::get(['id', 'name']);
+        $addresses  = UserAddress ::get(['id', 'address_title']);
+        return view('frontend.customer.addresses', compact('countries', 'addresses'));
+    }
+
+    public function create_address(AddressRequest $request)
+    {
+        if ($request->ajax()) {
+            $data = $request->validated();
+            unset($data["_token"]);
+            unset($data["_method"]);
+            $data['user_id'] = auth()->user()->id;
+    
+            UserAddress::create($data);
+            return 'Address Created successfully';
+          }
+          return abort('403');
+    }
+
+    public function edit_address($id)
+    {
+      $data = UserAddress::find($id);
+      return response()->json($data);
+    }
+  
+
+    public function update_address(AddressRequest $request, $id)
+    {
+        if ($request->ajax()) {
+            UserAddress::where('id', $id)->update($request->validated());
+            return 'Address Updated successfully';;
+          }
+          return abort('403');
+    }
+
+    public function destroy_address(Request $request, $id)
+    {
+      if ($request->ajax()) {
+        UserAddress::find($id)->delete();
+        return 'Address Deleted successfully';
+      }
+      return abort('403');
     }
 
     public function orders()
     {
-        return view('frontend.customer.orders');
+        $orders = Order::where('user_id', auth()->user()->id)->with('products')->get();
+        return view('frontend.customer.orders', compact('orders'));
+    }
+
+    public function order_view($id)
+    {
+        $data = Order::where('id', $id)->with('products')->get();
+        return response()->json($data);
     }
 }

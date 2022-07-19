@@ -16,7 +16,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{-- @forelse($orders as $order)
+                @forelse($orders as $order)
                     <tr wire:key="{{ $order->id }}">
                         <td>{{ $order->ref_id }}</td>
                         <td>{{ $order->currency() . ' ' . $order->total }}</td>
@@ -34,7 +34,7 @@
                             <p class="text-center">No orders found.</p>
                         </td>
                     </tr>
-                @endforelse --}}
+                @endforelse
                 </tbody>
             </table>
         </div>
