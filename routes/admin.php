@@ -25,13 +25,13 @@ Route::group(['prefix' => 'admin',  'as' => 'admin.'], function ()
 
   Route::group(['middleware' => 'roles', 'role:admin|supervisor'], function () 
   {
-    Route::get('/admin'                  , [AdminController::class, 'index'])                   ->name('index');
-    Route::get('/account_settings'       , [AdminController::class, 'account_settings'])        ->name('account_settings');
-    Route::post('/products/remove-image' , [ProductController::class, 'remove_image'])          ->name('products.remove_image');
-    Route::get('/customer/get_customers' , [CustomerController::class, 'get_customers'])        ->name('get_customers');
-    Route::get('/stat/get_states'        , [StateController::class, 'get_states'])              ->name('get_states');
-    Route::get('/city/get_cities'        , [CityController::class, 'get_cities'])               ->name('get_cities');
-    Route::patch('/account_settings'     , [AdminController::class, 'update_account_settings']) ->name('update_account_settings');
+    Route::get('/admin'                      , [AdminController::class    , 'index'])                   ->name('index');
+    Route::get('/account_settings'           , [AdminController::class    , 'account_settings'])        ->name('account_settings');
+    Route::get('/products/remove-image/{id}' , [ProductController::class  , 'remove_image'])            ->name('products.remove_image');
+    Route::get('/customer/get_customers'     , [CustomerController::class , 'get_customers'])           ->name('get_customers');
+    Route::get('/stat/get_states'            , [StateController::class    , 'get_states'])              ->name('get_states');
+    Route::get('/city/get_cities'            , [CityController::class     , 'get_cities'])              ->name('get_cities');
+    Route::patch('/account_settings'         , [AdminController::class    , 'update_account_settings']) ->name('update_account_settings');
 
     Route::resource('product_categories' , ProductCategoriesController::class);
     Route::resource('products'           , ProductController::class);

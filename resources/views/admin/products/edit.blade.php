@@ -1,8 +1,5 @@
 @extends('admin.layouts.admin')
 
-{{-- @section('style')
-<link rel="stylesheet" href="{{ asset('backend/vendor/select2/css/select2.min.css') }}">
-@endsection --}}
 @section('admin-content')
 
 <div class="card shadow mb-4">
@@ -18,7 +15,6 @@
         </div>
     </div>
     <div class="card-body">
-
         <form action="{{ route('admin.products.update', $product->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
@@ -115,6 +111,16 @@
                 <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
             </div>
         </form>
+        <div class="product-image my-5">
+            <h2 class="mt-4">Image's Product</h2>
+            <hr>
+            @foreach($product->media as $media)
+            <div class="col-2 my-3">
+                <img src="{{ asset('assets/products/'.$media->file_name) }}" alt="{{ $product->name }}">
+                <a href="{{ route('admin.products.remove_image', $media->id) }}"><i class="fa fa-trash"></i></a>
+            </div>
+            @endforeach
+        </div>       
     </div>
 </div>
 
@@ -177,41 +183,6 @@
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
-
-            $("#product-images").fileinput({
-                theme: "fas",
-                maxFileCount: 5,
-                allowedFileTypes: ['image'],
-                showCancel: true,
-                showRemove: false,
-                showUpload: false,
-                overwriteInitial: false,
-                initialPreview: [
-                    @if($product->media()->count() > 0)
-                        @foreach($product->media as $media)
-                            "{{ asset('assets/products/' . $media->file_name) }}",
-                        @endforeach
-                    @endif
-                ],
-                initialPreviewAsData: true,
-                initialPreviewFileType: 'image',
-                initialPreviewConfig: [
-                    @if($product->media()->count() > 0)
-                        @foreach($product->media as $media)
-                            {
-                                caption: "{{ $media->file_name }}",
-                                size: '{{ $media->file_size }}',
-                                width: "120px",
-                                url: "{{ route('admin.products.remove_image', ['image_id' => $media->id, 'product_id' => $product->id, '_token' => csrf_token()]) }}",
-                                key: {{ $media->id }}
-                            },
-                        @endforeach
-                    @endif
-                ]
-            }).on('filesorted', function (event, params) {
-                console.log(params.previewId, params.oldIndex, params.newIndex, params.stack);
-            });
-
 
         });
 </script>

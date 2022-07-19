@@ -12,7 +12,7 @@
             <div class="swiper product-slider-thumbs">
               <div class="swiper-wrapper">
                 @foreach($product->media as $media)
-                  <div class="swiper-slide h-auto swiper-thumb-item mb-3">
+                  <div class="h-auto swiper-thumb-item mb-3">
                       <img class="w-100" src="{{ asset('assets/products/'.$media->file_name) }}" alt="{{ $product->name }}">
                   </div>
                 @endforeach

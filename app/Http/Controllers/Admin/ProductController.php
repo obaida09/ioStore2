@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use App\Http\Requests\Admin\ProductRequest;
+use App\Models\Media;
 
 class ProductController extends Controller
 {
@@ -150,6 +151,25 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('admin.products.index')->with([
+            'message' => 'Deleted successfully',
+            'alert-type' => 'success'
+        ]);
+    }
+
+    public function remove_image($id)
+    {
+        if (!auth()->user()->ability('admin', 'delete_products')) {
+            return redirect('admin/index');
+        }
+
+        // $product = Product::findOrFail($request->product_id);
+        $image = Media::find($id);
+        // dd($image);
+        if (File::exists('assets/products/'. $image->file_name)){
+            unlink('assets/products/'. $image->file_name);
+        }
+        $image->delete();
+        return redirect()->back()->with([
             'message' => 'Deleted successfully',
             'alert-type' => 'success'
         ]);

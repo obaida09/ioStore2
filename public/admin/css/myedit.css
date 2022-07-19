@@ -82,3 +82,43 @@
 .card-body tfoot{
     display: none;
 }
+
+.product-image{
+    overflow: hidden;
+}
+
+.product-image h2{
+    text-align: center;
+}
+
+.product-image div{
+    position: relative;
+    float: left;
+}
+
+.product-image img{
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.product-image div:hover img{
+    opacity: 1;
+}
+
+.product-image a{
+    position: absolute;
+    top: 0;
+    right: 9px;
+    background-color: black;
+    padding: 5px 8px;
+    color: #f33b3b;
+    font-size: 10px;
+    border-radius: 0 0 0 10px;
+    opacity: 0;
+    transition: .4s;
+}
+
+.product-image div:hover a{
+    opacity: 1;
+    right: 11px;
+}
