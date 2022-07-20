@@ -63,41 +63,19 @@
 <script src="{{ asset('frontend/vendor/choices.js/public/assets/scripts/choices.min.js') }}"></script>
 <script src="{{ asset('frontend/js/front.js') }}"></script>
 
-{{-- <script type="text/javascript"
-  src="{{ asset('frontend/vendor/slick/code.jquery.com/jquery-migrate-1.2.1.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/vendor/slick/slick/slick.min.js') }}"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.your-class').slick({
-      setting-name: setting-value
-    });
-  });
-</script> --}}
-
 
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
 <script type="module">
+
   import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
-
   // const swiper = new Swiper(...)
-
-
 
   const swiper = new Swiper('.swiper', {
   // Default parameters
   slidesPerView: 4,
   spaceBetween: 5,
   loop: true,
-
-//   autoplay: {
-//    delay: 1000,
-//  },
-
-  // If we need pagination
-  // pagination: {
-  //   el: '.swiper-pagination',
-  // },
 
   // Navigation arrows
   navigation: {
@@ -117,15 +95,17 @@
 <!-- livewire Scripts-->
 @livewireScripts
 <!-- livewire Sweet Alert-->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 <x-livewire-alert::scripts />
 <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
 <x-livewire-alert::flash />
 {{-- @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"]) --}}
 
-<script>
+<!-- sweetalert Scripts-->
+@include('sweetalert::alert')
 
-        
+
+<script>
 // ------------------------------------------------------- //
 //   Inject SVG Sprite -
 //   see more here
@@ -158,18 +138,8 @@ injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
 
 </script>
 
-
-
-{{-- sweetalert --}}
-@include('sweetalert::alert')
-
 @stack('js')
 @stack('ajax')
-
-<script>
-
-
-</script>
 
 </body>
 

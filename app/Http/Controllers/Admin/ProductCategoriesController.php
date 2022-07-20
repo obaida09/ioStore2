@@ -69,11 +69,8 @@ class ProductCategoriesController extends Controller
         }
 
         ProductCategory::create($data);
-
-        return redirect()->route('admin.product_categories.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.product_categories.index');
     }
 
     /**
@@ -138,11 +135,8 @@ class ProductCategoriesController extends Controller
         }
 
         $productCategory->update($data);
-
-        return redirect()->route('admin.product_categories.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.product_categories.index');
     }
 
     /**
@@ -163,10 +157,7 @@ class ProductCategoriesController extends Controller
         }
 
         $productCategory->delete();
-
-        return redirect()->route('admin.product_categories.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.product_categories.index');
     }
 }

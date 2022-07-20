@@ -55,12 +55,10 @@ class CustomerController extends Controller
         // Customer Create
         $customer = User::create($data);
         $customer->markEmailAsVerified();
-        $customer->attachRole(Role::whereName('customer')->first()->id);
-
-        return redirect()->route('admin.customers.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        $customer->attachRole(Role::whereName('cu
+        stomer')->first()->id);
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.customers.index');
     }
 
     public function show(User $customer)
@@ -110,10 +108,8 @@ class CustomerController extends Controller
         // Customer Update
         $customer->update($data);
 
-        return redirect()->route('admin.customers.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.customers.index');
     }
 
     public function destroy(User $customer)
@@ -127,10 +123,8 @@ class CustomerController extends Controller
         }
         $customer->delete();
 
-        return redirect()->route('admin.customers.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.customers.index');
     }
 
     public function remove_image(Request $request)

@@ -38,10 +38,8 @@ class CityController extends Controller
 
         City::create($request->validated());
 
-        return redirect()->route('admin.cities.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.cities.index');
     }
 
     public function show(City $city)
@@ -70,10 +68,8 @@ class CityController extends Controller
 
         $city->update($request->validated());
 
-        return redirect()->route('admin.cities.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.cities.index');
     }
 
     public function destroy(City $city)
@@ -83,10 +79,8 @@ class CityController extends Controller
         }
         $city->delete();
 
-        return redirect()->route('admin.cities.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.cities.index');
     }
 
     public function get_cities(Request $request)

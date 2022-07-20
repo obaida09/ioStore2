@@ -85,6 +85,9 @@
   <script src="{{ url('/vendor/datatables/buttons.server-side.js') }}"></script>
   <script src='https://cdn.datatables.net/buttons/2.0.1/js/buttons.bootstrap5.min.js'></script>
 
+  <!-- sweetalert Scripts-->
+  @include('sweetalert::alert')
+
   @stack('js')
 
 </body>

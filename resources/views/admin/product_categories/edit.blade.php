@@ -65,6 +65,12 @@
                 </div>
             </form>
         </div>
+        <div class="product-image my-5">
+            <h2 class="mt-4">Category Image</h2>
+            <hr>
+            <div class="col-2 my-3 ml-3">
+                <img src="{{ asset('assets/product_categories/'.$productCategory->cover) }}" alt="{{ $productCategory->name }}">
+            </div>
+        </div>
     </div>
-
 @endsection

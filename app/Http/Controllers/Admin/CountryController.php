@@ -37,10 +37,8 @@ class CountryController extends Controller
 
         Country::create($request->validated());
 
-        return redirect()->route('admin.countries.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.countries.index');
     }
 
     public function show(Country $country)
@@ -69,10 +67,8 @@ class CountryController extends Controller
 
         $country->update($request->validated());
 
-        return redirect()->route('admin.countries.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.countries.index');
     }
 
     public function destroy(Country $country)
@@ -82,9 +78,7 @@ class CountryController extends Controller
         }
         $country->delete();
 
-        return redirect()->route('admin.countries.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.countries.index');
     }
 }

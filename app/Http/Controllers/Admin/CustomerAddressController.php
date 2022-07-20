@@ -39,10 +39,8 @@ class CustomerAddressController extends Controller
 
         UserAddress::create($request->validated());
 
-        return redirect()->route('admin.customer_addresses.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.customer_addresses.index')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
     }
 
     public function show(UserAddress $customer_address)
@@ -70,12 +68,10 @@ class CustomerAddressController extends Controller
             return redirect('admin/index');
         }
 
-        $customer_address->update($request->validated());
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            $customer_address->update($request->validated());
 
-        return redirect()->route('admin.customer_addresses.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.customer_addresses.index')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
     }
 
     public function destroy(UserAddress $customer_address)
@@ -85,9 +81,7 @@ class CustomerAddressController extends Controller
         }
         $customer_address->delete();
 
-        return redirect()->route('admin.customer_addresses.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.customer_addresses.index')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
     }
 }
