@@ -30,8 +30,12 @@ companies and facilitates shipping products.
 ```
 
 ```bash
+  php artisan clear-compiled
+```
+
+```bash
   npm install.
-```a
+```
 
 ```bash
   npm run dev.
@@ -52,7 +56,10 @@ companies and facilitates shipping products.
 
 ## What does the PA-Store include ?
 
-- Members controlling (client – merchant – manufacturers - supplier)
+- Didin't Fenish yet -> 90% Compleate - I need To Add Transaction and notifications
+- And I have some Problem in shop & products page  
+
+<!-- - Members controlling (client – merchant – manufacturers - supplier)
 - Products controlling (Products - Special Offers - Recycled Products)
 - Controlling at countries - cities - regions
 - Manufacturers controlling
@@ -66,7 +73,7 @@ companies and facilitates shipping products.
 - Maintenance, Retrieve deleted data and soft deletion services
 - Administrative structure, Admin & Users privileges and Banches
 - Direct electronic payment for products
-- Make Api for Frontend/Mobile
+- Make Api for Frontend/Mobile -->
 
 
 
