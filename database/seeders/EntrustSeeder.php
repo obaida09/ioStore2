@@ -46,12 +46,12 @@ class EntrustSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'System',
             'username' => 'admin',
-            'email' => 'obeda.aljorany@gmail.com',
+            'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
             'mobile' => '0000022',
             'user_image' => 'avatar.svg',
             'status' => 1,
-            'password' => bcrypt('obeda.aljorany@gmail.com'),
+            'password' => bcrypt('12345678'),
             'remember_token' => Str::random(10),
         ]);
         $admin->attachRole($adminRole);
@@ -74,12 +74,12 @@ class EntrustSeeder extends Seeder
             'first_name' => 'Obaida',
             'last_name' => 'Mohammed',
             'username' => 'Obaida',
-            'email' => 'obaida@Obaida.com',
+            'email' => 'customer@gmail.com',
             'email_verified_at' => now(),
             'mobile' => '0000022',
             'user_image' => 'avatar.svg',
             'status' => 1,
-            'password' => bcrypt('obedaobeda'),
+            'password' => bcrypt('12345678'),
             'remember_token' => Str::random(10),
         ]);
         $customer->attachRole($customerRole);

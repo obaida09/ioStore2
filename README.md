@@ -54,6 +54,17 @@ companies and facilitates shipping products.
   npm install.
 ```
 
+```bash
+  Admin Login 
+
+  admin@gmail.com -> 12345678
+```
+
+```bash
+  customer Login 
+
+  customer@gmail.com -> 12345678
+```
 
 ## What does the PA-Store include ?
 
