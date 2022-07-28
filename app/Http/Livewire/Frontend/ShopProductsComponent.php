@@ -8,10 +8,11 @@ use App\Models\ProductCategory;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ShopProductsComponent extends Component
 {
-    use WithPagination;
+    use WithPagination, LivewireAlert;
     protected $paginationTheme = 'bootstrap';
     public $paginationLimit = 15;
     public $slug;
@@ -71,6 +72,7 @@ class ShopProductsComponent extends Component
 
     public function render()
     {
+        $products = Product::with('firstMedia');
         $sortingByTags = $this->sortingByTags;
 
         switch ($this->sortingBy['value']) {
@@ -91,7 +93,6 @@ class ShopProductsComponent extends Component
                 $sort_type = 'asc';
         }
 
-        $products = Product::with('firstMedia');
         if ($this->slug == '') {
             $products = $products->ActiveCategory();
         } else {

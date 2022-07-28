@@ -98,7 +98,7 @@ class ProductController extends Controller
         }
         $data = $request->validated();
         $data['slug'] =  Str::slug($request->name);
-        unset($data['images']);
+        unset($data['tags']);
 
         $product->update($data);
         $product->tags()->sync($request->tags);

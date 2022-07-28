@@ -85,11 +85,12 @@
             <div class="row">
                 <div class="col-12">
                     <label for="tags">tags</label>
-                    <select name="tags" class="form-control select2" multiple="multiple">
+                    <select name="tags[]" class="form-control select2" multiple="multiple">
                         @forelse($tags as $tag)
                         <option value="{{ $tag->id }}" {{ in_array($tag->id, $product->tags->pluck('id')->toArray()) ?
                             'selected' : null }}>{{ $tag->name }}</option>
                         @empty
+                            <h3>No tag select</h3>
                         @endforelse
                     </select>
                 </div>
@@ -165,6 +166,7 @@
 
             $(".select2").select2({
                 tags: true,
+                multiple: true,
                 closeOnSelect: false,
                 minimumResultsForSearch: Infinity,
                 matcher: matchStart

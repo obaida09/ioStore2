@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductCategoriesController;
 use App\Http\Controllers\Admin\ProductController;
@@ -25,7 +24,7 @@ Route::group(['prefix' => 'admin',  'as' => 'admin.'], function ()
 
   Route::group(['middleware' => 'roles', 'role:admin|supervisor'], function () 
   {
-    Route::get('/admin'                      , [AdminController::class    , 'index'])                   ->name('index');
+    Route::get('/home'                       , [AdminController::class    , 'index'])                   ->name('index');
     Route::get('/account_settings'           , [AdminController::class    , 'account_settings'])        ->name('account_settings');
     Route::get('/products/remove-image/{id}' , [ProductController::class  , 'remove_image'])            ->name('products.remove_image');
     Route::get('/customer/get_customers'     , [CustomerController::class , 'get_customers'])           ->name('get_customers');

@@ -33,12 +33,12 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    // public function redirectTo()
-    // {
-    //     if (auth()->user()->roles()->first()->allowed_route != '') {
-    //         return $this->redirectTo = auth()->user()->roles()->first()->allowed_route . '/index';
-    //     }
-    // }
+    public function redirectTo()
+    {
+        if (auth()->user()->roles()->first()->allowed_route != '') {
+            return $this->redirectTo = auth()->user()->roles()->first()->allowed_route . '/home';
+        }
+    }
 
     public function logout(Request $request)
     {

@@ -5,10 +5,11 @@ namespace App\Http\Livewire\Frontend;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
-
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ShowProductComponent extends Component
 {
+    use LivewireAlert;
     public $product;
     public $quantity = 1;
 

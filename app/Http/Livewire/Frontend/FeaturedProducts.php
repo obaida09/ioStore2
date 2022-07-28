@@ -5,10 +5,12 @@ namespace App\Http\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class FeaturedProducts extends Component
 {
-        public function addToCart($id)
+    use LivewireAlert;
+    public function addToCart($id)
     {
         $product = Product::whereId($id)->Active()->HasQuantity()->ActiveCategory()->firstOrFail();
         $duplicates = Cart::instance('default')->search(function ($cartItem, $rowId) use ($product) {
@@ -19,7 +21,7 @@ class FeaturedProducts extends Component
         } else {
             Cart::instance('default')->add($product->id, $product->name, 1, $product->price)->associate(Product::class);
             $this->emit('updateCart');
-            // $this->alert('success', 'Product added in your cart successfully.');
+            $this->alert('success', 'Product added in your cart successfully.');
         }
     }
 

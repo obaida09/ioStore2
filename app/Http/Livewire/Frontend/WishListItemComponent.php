@@ -19,7 +19,6 @@ class WishListItemComponent extends Component
         $this->emit('removeFromWishList', $rowId);
     }
 
-
     public function render()
     {
         return view('livewire.frontend.wish-list-item-component', [

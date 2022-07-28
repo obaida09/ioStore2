@@ -91,15 +91,12 @@
 
 </script>
 
-
 <!-- livewire Scripts-->
 @livewireScripts
 <!-- livewire Sweet Alert-->
-{{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
-<script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
 <x-livewire-alert::flash />
-{{-- @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"]) --}}
 
 <!-- sweetalert Scripts-->
 @include('sweetalert::alert')

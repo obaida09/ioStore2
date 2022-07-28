@@ -4,9 +4,11 @@ namespace App\Http\Livewire\Frontend;
 
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class CartItemComponent extends Component
 {
+    use LivewireAlert;
     public $item;
     public $item_quantity = 1;
 
@@ -37,7 +39,7 @@ class CartItemComponent extends Component
     {
         Cart::instance('default')->remove($rowId);
         $this->emit('updateCart');
-        // $this->alert('success', 'Item removed from your cart!');
+        $this->alert('success', 'Item removed from your cart!');
         if (Cart::instance('default')->count() == 0){
             return redirect()->route('frontend.cart');
         }

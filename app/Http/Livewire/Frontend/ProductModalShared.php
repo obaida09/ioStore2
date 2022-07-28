@@ -5,10 +5,11 @@ namespace App\Http\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class ProductModalShared extends Component
 {
-
+    use LivewireAlert;
     public $productModalCount = false;
     public $productModal = [];
     public $quantity = 1;
@@ -42,7 +43,7 @@ class ProductModalShared extends Component
             Cart::instance('default')->add($this->productModal->id, $this->productModal->name, $this->quantity, $this->productModal->price)->associate(Product::class);
             $this->quantity = 1;
             $this->emit('updateCart');
-            // $this->alert('success', 'Product added in your cart successfully.');
+            $this->alert('success', 'Product added in your cart successfully.');
         }
     }
 
@@ -56,7 +57,7 @@ class ProductModalShared extends Component
         } else {
             Cart::instance('wishlist')->add($this->productModal->id, $this->productModal->name, 1, $this->productModal->price)->associate(Product::class);
             $this->emit('updateCart');
-            // $this->alert('success', 'Product added in your wishlist cart successfully.');
+            $this->alert('success', 'Product added in your wishlist cart successfully.');
         }
     }
 

@@ -35,15 +35,8 @@ class ProductSeeder extends Seeder
                 'created_at'            => now(),
                 'updated_at'            => now(),
             ];
-            // if($i < 100) {
-            //     DB::table('taggables')->insert([
-            //         'tag_id'        => rand(1, 5),
-            //         'taggable_id'   => $i,
-            //         'taggable_type' => 'tag',
-            //     ]);
-            // }
+            // Product::tags()->attach( rand(1, 8) );
         }
-
 
 
         $chunks = array_chunk($products, 100);
