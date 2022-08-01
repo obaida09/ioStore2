@@ -12,8 +12,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
                             <li class="breadcrumb-item"><a href="{{ route('frontend.index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('frontend.customer.orders') }}">Orders</a>
-                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Orders</li>
                         </ol>
                     </nav>
                 </div>
@@ -134,7 +133,6 @@
             '<div class="mt-4">' + 
               '<p class="pr-4 mb-0">Total: ' + data[key].total + ' <span class="curency">' + data[key].currency + '</span></p>' +
             '</div>'
-            
           )
         }
       , })

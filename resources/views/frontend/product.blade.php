@@ -57,7 +57,6 @@
 
         <livewire:frontend.show-product-component :product="$product" />
 
-
         <br>
         <ul class="list-unstyled small d-inline-block">
           <li class="px-3 py-2 mb-1 bg-white text-muted">
@@ -137,9 +136,10 @@
         </div>
       </div>
     </div>
+    
     <!-- RELATED PRODUCTS-->
-
     <livewire:frontend.related-products-component :relatedProducts="$relatedProducts" />
+    
   </div>
 </section>
 <div>

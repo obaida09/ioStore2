@@ -35,11 +35,8 @@ class ProductCouponController extends Controller
         }
 
         ProductCoupon::create($request->validated());
-
-        return redirect()->route('admin.product_coupons.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.product_coupons.index');
     }
 
     public function show(ProductCoupon $productCoupon)
@@ -62,11 +59,8 @@ class ProductCouponController extends Controller
         }
 
         $productCoupon->update($request->validated());
-
-        return redirect()->route('admin.product_coupons.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.product_coupons.index');
     }
 
     public function destroy(ProductCoupon $productCoupon)
@@ -74,12 +68,9 @@ class ProductCouponController extends Controller
         if (!auth()->user()->ability('admin', 'delete_product_coupons')) {
             return redirect('admin/index');
         }
-
         $productCoupon->delete();
-
-        return redirect()->route('admin.product_coupons.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.product_coupons.index');
     }
 }

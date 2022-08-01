@@ -14,9 +14,6 @@
   <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
   <title>{{ config('app.name', 'Laravel') }}</title>
 
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
-
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -44,63 +41,6 @@
 
   <!-- livewire Styles -->
   @livewireStyles
-
-  <style>
-    .swiper {
-      /* width: 600px; */
-      /* height: 300px; */
-    }
-
-    .swiper-slide {
-      background-color: rgb(255, 255, 255);
-    }
-
-    .fl-l {
-      float: left;
-    }
-
-    .fl-r {
-      float: right;
-    }
-
-    .swiper .swiper-button-prev,
-    .swiper .swiper-button-next {
-      display: none;
-      color: #dcb14a;
-    }
-
-    .swiper:hover .swiper-button-prev,
-    .swiper:hover .swiper-button-next {
-      display: inline-flex;
-      width: 5%;
-      height: 97%;
-      margin-top: -195px;
-      background-color: rgba(0, 0, 0, 0.05);
-      transition: .3s;
-    }
-
-    .active-menu {
-      color: rgb(204, 158, 3);
-    }
-
-
-
-    .price-range-btn {
-      font-size: 12px;
-      padding: 3px 7px;
-      opacity: .8;
-    }
-
-    .op-1 {
-      opacity: 1;
-    }
-
-    .curency {
-      font-size: 10px;
-      opacity: .7;
-
-    }
-  </style>
 
 </head>
 

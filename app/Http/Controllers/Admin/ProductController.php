@@ -68,11 +68,8 @@ class ProductController extends Controller
                 $i++;
             }
         }
-
-        return redirect()->route('admin.products.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.products.index');
     }
 
     public function show($id)
@@ -126,11 +123,8 @@ class ProductController extends Controller
                 $i++;
             }
         }
-
-        return redirect()->route('admin.products.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.products.index');
 
     }
 
@@ -149,11 +143,8 @@ class ProductController extends Controller
             }
         }
         $product->delete();
-
-        return redirect()->route('admin.products.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.products.index');
     }
 
     public function remove_image($id)

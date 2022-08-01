@@ -66,11 +66,9 @@ class SupervisorController extends Controller
         if (isset($request->permissions) && count($request->permissions) > 0) {
             $supervisor->permissions()->sync($request->permissions);
         }
-
-        return redirect()->route('admin.supervisors.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.supervisors.index');
     }
 
     public function show(User $supervisor)
@@ -126,11 +124,9 @@ class SupervisorController extends Controller
         if (isset($request->permissions) && count($request->permissions) > 0) {
             $supervisor->permissions()->sync($request->permissions);
         }
-
-        return redirect()->route('admin.supervisors.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.supervisors.index');
     }
 
     public function destroy(User $supervisor)
@@ -143,11 +139,9 @@ class SupervisorController extends Controller
             unlink('assets/users/'. $supervisor->user_image);
         }
         $supervisor->delete();
-
-        return redirect()->route('admin.supervisors.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.supervisors.index');
     }
 
     public function remove_image(Request $request)

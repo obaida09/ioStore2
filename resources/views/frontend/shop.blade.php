@@ -22,11 +22,4 @@
 
     <livewire:frontend.shop-products-component :slug="$slug" />
 </div>
-
-@push('js')
-  <script>
-      
-
-  </script>
-@endpush
 @endsection

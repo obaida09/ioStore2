@@ -58,11 +58,9 @@ class TagController extends Controller
         $data['slug'] =  Str::slug($request->name);
 
         Tag::create($data);
-
-        return redirect()->route('admin.tags.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -108,11 +106,9 @@ class TagController extends Controller
         $data['slug'] =  Str::slug($request->name);
 
         $tag->update($data);
-
-        return redirect()->route('admin.tags.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -127,10 +123,8 @@ class TagController extends Controller
             return redirect('admin/index');
         }
         $tag->delete();
-
-        return redirect()->route('admin.tags.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.tags.index');
     }
 }

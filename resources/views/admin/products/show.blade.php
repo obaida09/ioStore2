@@ -1,5 +1,5 @@
-@extends('layouts.admin')
-@section('content')
+@extends('admin.layouts.admin')
+@section('admin-content')
 
     show
 

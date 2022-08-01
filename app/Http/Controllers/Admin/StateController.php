@@ -37,10 +37,9 @@ class StateController extends Controller
         }
 
         State::create($request->validated());
-        return redirect()->route('admin.states.index')->with([
-            'message' => 'Created successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Created successfully', 'success');
+        return redirect()->route('admin.states.index');
     }
 
     public function show(State $state)
@@ -69,10 +68,8 @@ class StateController extends Controller
 
         $state->update($request->validated());
 
-        return redirect()->route('admin.states.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.states.index');
     }
 
     public function destroy(State $state)
@@ -82,10 +79,8 @@ class StateController extends Controller
         }
         $state->delete();
 
-        return redirect()->route('admin.states.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.states.index');
     }
 
     public function get_states(Request $request)

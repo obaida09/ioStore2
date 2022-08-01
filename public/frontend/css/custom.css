@@ -1,1 +1,49 @@
-/* your styles go here */
+
+.swiper-slide {
+    background-color: rgb(255, 255, 255);
+}
+
+.fl-l {
+    float: left;
+}
+
+.fl-r {
+    float: right;
+}
+
+.op-1 {
+    opacity: 1;
+}
+
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    display: none;
+    color: #dcb14a;
+}
+
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next {
+    display: inline-flex;
+    width: 5%;
+    height: 97%;
+    margin-top: -195px;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: .3s;
+}
+
+.active-menu {
+    color: rgb(204, 158, 3);
+}
+
+
+.price-range-btn {
+    font-size: 12px;
+    padding: 3px 7px;
+    opacity: .8;
+}
+
+.curency {
+    font-size: 10px;
+    opacity: .7;
+}

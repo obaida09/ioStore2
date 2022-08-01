@@ -12,8 +12,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
                             <li class="breadcrumb-item"><a href="{{ route('frontend.index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a
-                                    href="{{ route('frontend.customer.addresses') }}">Addresses</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Addresses</li>
                         </ol>
                     </nav>
                 </div>
@@ -21,7 +20,6 @@
         </div>
     </section>
     <section class="py-5">
-
         <div class="row">
             <div class="col-lg-8">
                 <div class="row py-lg-4 align-items-center bg-light ms-1">
@@ -82,8 +80,6 @@
                     </div>
                 </div>
             </div>
-
-
             <!-- SIDEBAR -->
             <div class="col-lg-4">
                 @include('layouts.customer_sidebar')

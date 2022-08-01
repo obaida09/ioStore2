@@ -87,47 +87,47 @@
 
 
 
-function partsSums($ls) {
+// function partsSums($ls) {
 
-    $count = count($ls);
-    $result = [];
+//     $count = count($ls);
+//     $result = [];
 
-    foreach ($ls as  $value) {
-        $result[] = array_sum($ls);
-        array_shift($ls);
-    }
+//     foreach ($ls as  $value) {
+//         $result[] = array_sum($ls);
+//         array_shift($ls);
+//     }
 
-    // for ($i=0; $i < $count; $i++) { 
+//     // for ($i=0; $i < $count; $i++) { 
 
-    //     $result[] = array_sum($ls);
-    //     array_shift($ls);
+//     //     $result[] = array_sum($ls);
+//     //     array_shift($ls);
 
-    // }
-    $result[] = 0;
-    print_r($result);
-}
+//     // }
+//     $result[] = 0;
+//     print_r($result);
+// }
 
-echo partsSums([0, 1, 3, 6, 10]);
-
-
+// echo partsSums([0, 1, 3, 6, 10]);
 
 
-echo 'hello world' . '<br>';
 
 
-function obadia_strlen($str){
-    for($i = 0 ; $i < 10; $i++){
-        if($str[$i] !== ) {
-            echo $str[$i];
-        }
-    }
-}
-
-obadia_strlen('obaida');
-
-function toCamelCase($str){
-    // for($i = 0 ; $i < )
-}
+// echo 'hello world' . '<br>';
 
 
-echo toCamelCase("the_stealth_warrior");
+// function obadia_strlen($str){
+//     for($i = 0 ; $i < 10; $i++){
+//         if($str[$i] !== ) {
+//             echo $str[$i];
+//         }
+//     }
+// }
+
+// obadia_strlen('obaida');
+
+// function toCamelCase($str){
+//     // for($i = 0 ; $i < )
+// }
+
+
+// echo toCamelCase("the_stealth_warrior");

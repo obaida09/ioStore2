@@ -8,8 +8,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
-
+  <title>Dashboard</title>
+  
+  <!-- Styles -->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link
@@ -21,7 +23,9 @@
   <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
   <!-- My Custom styles for this template-->
   <link href="{{ asset('admin/css/myedit.css') }}" rel="stylesheet">
-
+  <!-- Use livewire-->
+  <livewire:styles />
+  <!-- css code -->
   @stack('css')
 
 </head>
@@ -34,7 +38,6 @@
 
       <!-- Sidebar -->
       @include('admin.partial.sidebar')
-      <!-- End of Sidebar -->
 
       <!-- Content Wrapper -->
       <div id="content-wrapper" class="d-flex flex-column">
@@ -44,16 +47,15 @@
 
           <!-- Topbar -->
           @include('admin.partial.navbar')
-          <!-- End of Topbar -->
 
           <!-- Main content -->
           <div class="container-fluid">
             @yield('admin-content')
           </div>
         </div>
+        
         <!-- Footer -->
         @include('admin.partial.footer')
-        <!-- End of Footer -->
       </div>
     </div>
   </div>
@@ -67,6 +69,9 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
+  
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}"></script>
 
   <!-- My Custom scripts for all pages-->
   <script src="{{ asset('admin/js/myedit.js') }}"></script>
@@ -87,9 +92,9 @@
 
   <!-- sweetalert Scripts-->
   @include('sweetalert::alert')
-
+  <!--  Use livewire -->
+  <livewire:scripts />
   @stack('js')
-
 </body>
 
 </html>

@@ -37,7 +37,6 @@ class CityController extends Controller
         }
 
         City::create($request->validated());
-
         toast('Created successfully', 'success');
         return redirect()->route('admin.cities.index');
     }

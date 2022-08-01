@@ -25,10 +25,6 @@
             <a href="javascript:void(0);" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <strong class="small text-uppercase font-weight-bold">Logout</strong>
             </a>
-            {{--<form action="{{ route('logout') }}" method="post" id="logout-form" class="d-none">
-                @csrf
-            </form>--}}
         </div>
-
     </div>
 </div>

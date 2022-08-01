@@ -10,12 +10,19 @@ use App\Http\Controllers\Admin\ProductCouponController;
 use App\Http\Controllers\Admin\ProductReviewController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\SupervisorController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\CustomerAddressController;
 use App\Http\Controllers\Admin\ShippingCompanyController;
 use App\Http\Controllers\Admin\PaymentMethodController;
+use App\Notifications\Frontend\Customer\OrderCreatedNotification;
+
+Route::get('/send', function () {
+    $user = \App\Models\User::get()->first();
+    $user->notify(new OrderCreatedNotification('hello world'));
+});
 
 Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () 
 {
@@ -39,6 +46,7 @@ Route::group(['prefix' => 'admin',  'as' => 'admin.'], function ()
     Route::resource('product_reviews'    , ProductReviewController::class);
     Route::resource('customers'          , CustomerController::class);
     Route::resource('supervisors'        , SupervisorController::class);
+    Route::resource('orders'             , OrderController::class);
     Route::resource('countries'          , CountryController::class);
     Route::resource('states'             , StateController::class);
     Route::resource('cities'             , CityController::class);

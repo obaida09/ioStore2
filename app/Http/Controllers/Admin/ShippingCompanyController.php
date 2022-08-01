@@ -38,18 +38,19 @@ class ShippingCompanyController extends Controller
         }
 
         if ($request->validated()) {
+        
             $shipping_company = ShippingCompany::create($request->except('countries', '_token', 'submit'));
             $shipping_company->countries()->attach(array_values($request->countries));
-
+            
+            toast('Created successfully', 'success');
             return redirect()->route('admin.shipping_companies.index')->with([
                 'message' => 'Created successfully',
                 'alert-type' => 'success'
             ]);
+            
         } else {
-            return redirect()->route('admin.shipping_companies.index')->with([
-                'message' => 'Something wrong',
-                'alert-type' => 'danger'
-            ]);
+            toast('Something wrong', 'danger');
+            return redirect()->route('admin.shipping_companies.index');
         }
     }
 
@@ -72,19 +73,16 @@ class ShippingCompanyController extends Controller
 
 
         if ($request->validated()) {
-
+        
             $shipping_company->update($request->except('countries', '_token', 'submit'));
             $shipping_company->countries()->sync(array_values($request->countries));
-
-            return redirect()->route('admin.shipping_companies.index')->with([
-                'message' => 'Updated successfully',
-                'alert-type' => 'success'
-            ]);
+            
+            toast('Updated successfully', 'success');
+            return redirect()->route('admin.shipping_companies.index');   
+            
         } else {
-            return redirect()->route('admin.shipping_companies.index')->with([
-                'message' => 'Something wrong',
-                'alert-type' => 'danger'
-            ]);
+            toast('Something wrong', 'danger');
+            return redirect()->route('admin.shipping_companies.index');
         }
     }
 
@@ -94,10 +92,8 @@ class ShippingCompanyController extends Controller
             return redirect('admin/index');
         }
         $shipping_company->delete();
-
-        return redirect()->route('admin.shipping_companies.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.shipping_companies.index');
     }
 }

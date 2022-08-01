@@ -101,12 +101,11 @@ class PaymentController extends Controller
                 'shipping',
             ]);
 
-            // User::whereHas('roles', function($query) {
-            //     $query->whereIn('name', ['admin', 'supervisor']);
-            // })->each(function ($admin, $key) use ($order) {
-            //     $admin->notify(new OrderCreatedNotification($order));
-            // });
-
+            User::whereHas('roles', function($query) {
+                $query->whereIn('name', ['admin', 'supervisor']);
+            })->each(function ($admin, $key) use ($order) {
+                $admin->notify(new OrderCreatedNotification($order));
+            });
 
             // $data = $order->toArray();
             // $data['currency_symbol'] = $order->currency == 'USD' ? '$' : $order->currency;

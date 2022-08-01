@@ -12,7 +12,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
                             <li class="breadcrumb-item"><a href="{{ route('frontend.index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('frontend.customer.profile') }}">Profile</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                         </ol>
                     </nav>
                 </div>
@@ -24,7 +24,6 @@
         <div class="row">
             <div class="col-lg-8">
                 <h2 class="h5 text-uppercase mb-4">General Information</h2>
-
                 INDEX
             </div>
 

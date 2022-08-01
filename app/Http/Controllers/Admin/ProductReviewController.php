@@ -56,11 +56,8 @@ class ProductReviewController extends Controller
         }
 
         $productReview->update($request->validated());
-
-        return redirect()->route('admin.product_reviews.index')->with([
-            'message' => 'Updated successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Updated successfully', 'success');
+        return redirect()->route('admin.product_reviews.index');
     }
 
     public function destroy(ProductReview $productReview)
@@ -70,10 +67,7 @@ class ProductReviewController extends Controller
         }
 
         $productReview->delete();
-
-        return redirect()->route('admin.product_reviews.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.product_reviews.index');
     }
 }
