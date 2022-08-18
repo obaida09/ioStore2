@@ -1,12 +1,6 @@
 @extends('admin.layouts.admin')
 @section('admin-content')
 
-@if ($message = Session::get('message'))
-<div class="alert alert-success" id="successMessage" role="alert">
-    {{ $message }}
-</div>
-@endif
-
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
         <h6 class="m-2 font-weight-bold text-primary">Tags</h6>
@@ -19,7 +13,6 @@
             </a>
         </div>
     </div>
-
     <div class="card-body pt-0">
         <div class="table-responsive">
             {!! $dataTable->table(['class' => 'table table-bordered dataTable'], true) !!}
@@ -30,4 +23,5 @@
 @push('js')
 {!! $dataTable->scripts() !!}
 @endpush
+
 @endsection

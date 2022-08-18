@@ -66,26 +66,120 @@ companies and facilitates shipping products.
   customer@gmail.com -> 12345678
 ```
 
-## What does the PA-Store include ?
+## What does the iOStore include ?
 
-- Didin't Fenish yet -> 90% Compleate - I need To Add Transaction and notifications
-- And I have some Problem in shop & products page  
 
-<!-- - Members controlling (client – merchant – manufacturers - supplier)
-- Products controlling (Products - Special Offers - Recycled Products)
-- Controlling at countries - cities - regions
-- Manufacturers controlling
-- Shopping Companies controlling
-- Department controlling
-- watermark or Trade-Mark controlling
-- Products color controlling
-- Controlling products sizing
-- Controlling Malls
-- Controlling requests in shopping cart
-- Maintenance, Retrieve deleted data and soft deletion services
-- Administrative structure, Admin & Users privileges and Banches
-- Direct electronic payment for products
-- Make Api for Frontend/Mobile -->
+- Set roles and permissions
+
+- build control panel
+
+	- Product Categories
+ 
+	- Products
+	
+	- Discount Coupons
+
+	- Products Comments
+
+	- customers
+
+	- Supervisors
+
+	- Countries, provinces and cities
+
+	- Customer addresses
+
+	- shipping companies
+
+	- Administrator or admin account settings
+
+
+- Website interface
+
+	- install Livewire
+ 
+	- Featured Products
+
+	- Install shipping cart
+ 
+	- Add to cart
+
+	- Product details
+ 
+	- View products
+
+
+- Cart Operations
+
+	- Cart Update
+ 
+	- Favorite
+
+	- Cart information
+ 
+	- Payment page
+
+	- Add the discount on the payment page
+ 
+	- Shipping addresses
+
+	- Show payment
+
+
+- electronic payment
+
+	- Paypal Settings
+ 
+	- Install OmniPay
+
+	- OmniPay Settings
+
+	- Preparing order schedules
+ 
+	- Create orders
+
+
+
+- customer account
+
+	- Homepage
+ 
+	- info page
+
+	- Addresses page
+ 
+	- Order page
+
+
+- Orders control panel
+
+	- Order control
+
+	- Money back
+
+	- Update orders
+
+	- Money back
+
+
+- Alerts and messages
+
+	- Install the Laravel websockets library
+
+	- Send an alert to the site management
+
+	- Building alerts for customers
+
+	- Homepage
+
+	- Homepage
+
+
+- Dashboard statistics work
+
+	- statistics
+
+ 
 
 
 

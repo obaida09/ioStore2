@@ -55,8 +55,8 @@ class CustomerController extends Controller
         // Customer Create
         $customer = User::create($data);
         $customer->markEmailAsVerified();
-        $customer->attachRole(Role::whereName('cu
-        stomer')->first()->id);
+        $customer->attachRole(Role::whereName('customer')->first()->id);
+        
         toast('Created successfully', 'success');
         return redirect()->route('admin.customers.index');
     }

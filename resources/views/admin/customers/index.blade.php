@@ -1,12 +1,6 @@
 @extends('admin.layouts.admin')
 @section('admin-content')
 
-@if ($message = Session::get('message'))
-<div class="alert alert-success" id="successMessage" role="alert">
-    {{ $message }}
-</div>
-@endif
-
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
         <h6 class="m-2 font-weight-bold text-primary">{{ isset($title)?$title: 'Admin' }}</h6>

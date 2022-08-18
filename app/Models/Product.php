@@ -71,6 +71,11 @@ class Product extends Model
     {
         return $this->hasMany(ProductReview::class);
     }
+    
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 
     public function firstMedia()
     {

@@ -21,7 +21,7 @@ class Order extends Model
     const RETURNED = 7;
     const REFUNDED = 8;
 
-    public function currency(): string
+    public function currency()
     {
         return $this->currency == 'USD' ? '$' : $this->currency;
     }
@@ -70,22 +70,6 @@ class Order extends Model
             case 6: $result = 'Refund requested'; break;
             case 7: $result = 'Refunded'; break;
             case 8: $result = 'Returned order'; break;
-        }
-        return $result;
-    }
-
-    public function statusWithLabel()
-    {
-        switch ($this->order_status) {
-            case 0: $result = '<label class="badge badge-success">New order</label>'; break;
-            case 1: $result = '<label class="badge badge-warning">Paid</label>'; break;
-            case 2: $result = '<label class="badge badge-warning">Under process</label>'; break;
-            case 3: $result = '<label class="badge badge-primary">Finished</label>'; break;
-            case 4: $result = '<label class="badge badge-danger">Rejected</label>'; break;
-            case 5: $result = '<label class="badge badge-dark text-white">Canceled</label>'; break;
-            case 6: $result = '<label class="badge bg-dark text-white">Refund requested</label>'; break;
-            case 7: $result = '<label class="badge bg-slate">Returned order</label>'; break;
-            case 8: $result = '<label class="badge bg-dark text-white">Refunded order</label>'; break;
         }
         return $result;
     }

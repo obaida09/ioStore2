@@ -20,14 +20,38 @@ use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Notifications\Frontend\Customer\OrderCreatedNotification;
 
 Route::get('/send', function () {
-    $user = \App\Models\User::get()->first();
-    $user->notify(new OrderCreatedNotification('hello world'));
+  $order = \App\Models\Order::first()->products()->count();
+  $product = \App\Models\Product::first()->orders()->count();
+  
+  $orders = App\Models\Order::with( ['products' => function($query) {$query->with('category'); }])->get();
+
+foreach($orders as $order) {
+    foreach($order->products as $product) {
+      $product->productsCount;
+      $product->category->name;
+      $category[] = $product->category->id;
+    }
+}
+// $orders = App\Models\ProductCategory::with( ['products' => function($query) {$query->with('orders'); }])->get();
+
+// $order = \App\Models\ProductCategory::products()->first();
+
+echo "<pre>";
+
+print_r($category);
+print_r(array_count_values($category));
+
+$a = sort($category);
+print_r($a);
+
+
+  // $user->notify(new OrderCreatedNotification('hello world'));
 });
 
 Route::group(['prefix' => 'admin',  'as' => 'admin.'], function () 
 {
   Route::get('/login'           , [AdminController::class, 'login'])           ->name('login')->middleware('guest');
-  Route::get('/forgot-password' , [AdminController::class, 'forgot-password']) ->name('forgotPassword');
+  Route::get('/forgot-password' , [AdminController::class, 'forgot-password']) ->name('forgotPassword')->middleware('guest');;
 
   Route::group(['middleware' => 'roles', 'role:admin|supervisor'], function () 
   {

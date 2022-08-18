@@ -6,31 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderTransaction;
 use App\Models\User;
+use App\DataTables\OrderDatatable;
 use App\Notifications\Admin\Orders\OrderNotification;
 use App\Services\OmnipayService;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(OrderDatatable $order)
     {
         if (!auth()->user()->ability('admin', 'manage_orders, show_orders')) {
             return redirect('admin/index');
         }
         
-        return  'hellow from order';
-
-        // $orders = Order::query()
-        //     ->when(\request()->keyword != null, function ($query) {
-        //         $query->search(\request()->keyword);
-        //     })
-        //     ->when(\request()->status != null, function ($query) {
-        //         $query->whereOrderStatus(\request()->status);
-        //     })
-        //     ->orderBy(\request()->sort_by ?? 'id', \request()->order_by ?? 'desc')
-        //     ->paginate(\request()->limit_by ?? 10);
-
-        // return view('admin.orders.index', compact('orders'));
+        $title = 'Control Order';
+        return $order->render('admin.orders.index', compact('title'));
     }
 
     public function create()
@@ -85,7 +75,7 @@ class OrderController extends Controller
             return redirect('admin/index');
         }
 
-        // return view('admin.orders.edit', compact('order'));
+        return view('admin.orders.edit', compact('order'));
     }
 
     public function update(Request $request, Order $order)
@@ -114,12 +104,9 @@ class OrderController extends Controller
                 ]);
 
                 $customer->notify(new OrderNotification($order));
-
-                return back()->with([
-                    'message' => 'Refunded updated successfully',
-                    'alert-type' => 'success',
-                ]);
-
+                
+                toast('Refunded updated successfully', 'success');
+                return back();
             }
 
         } else {
@@ -133,11 +120,9 @@ class OrderController extends Controller
             ]);
 
             $customer->notify(new OrderNotification($order));
-
-            return back()->with([
-                'message' => 'updated successfully',
-                'alert-type' => 'success',
-            ]);
+            
+            toast('updated successfully', 'success');
+            return back();
 
         }
 
@@ -150,9 +135,7 @@ class OrderController extends Controller
         }
         $order->delete();
 
-        return redirect()->route('admin.orders.index')->with([
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success'
-        ]);
+        toast('Deleted successfully', 'success');
+        return redirect()->route('admin.orders.index');
     }
 }

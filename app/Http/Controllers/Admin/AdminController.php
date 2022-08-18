@@ -14,7 +14,6 @@ class AdminController extends Controller
     public function index()
     {
         $admin_side_menu = Permission::tree();
-        // dd($admin_side_menu);
         return view('Admin.index', compact('admin_side_menu'));
     }
 
