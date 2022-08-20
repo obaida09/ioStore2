@@ -5,12 +5,11 @@
 
 # Laravel E-commerce
 
-Goals:
-Using all available aspects to create online shopping meeting the
-market needs from scientific, financial and morality meaning aims the
-market for continuing and rises the level of trading and relations
-between clients, merchants, manufacturers, markets and shopping
-companies and facilitates shipping products.
+It is an online store that includes all the basic and important things that help the customer to deal with products smoothly and easily.
+Where the site contains a basic interface that includes important offers, distinctive products, and others.
+It contains the store page that includes the main and sub-sections in addition to the products that are in each section.
+It also contains a page to purchase products and complete the electronic payment process.
+It contains many important things that contribute to the success of the project
 
 ### To run PA-Store, Start With This Command
 
@@ -159,8 +158,6 @@ companies and facilitates shipping products.
 
 	- Update orders
 
-	- Money back
-
 
 - Alerts and messages
 
@@ -169,8 +166,6 @@ companies and facilitates shipping products.
 	- Send an alert to the site management
 
 	- Building alerts for customers
-
-	- Homepage
 
 	- Homepage
 
